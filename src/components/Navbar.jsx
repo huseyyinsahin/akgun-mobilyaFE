@@ -28,6 +28,7 @@ const Navbar = () => {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
             variant="h1"
+            component="h1"
             sx={{ fontFamily: "Lobster", fontSize: { xs: "1.8rem", md: "3.5rem" } }}
           >
             AKGÜN
