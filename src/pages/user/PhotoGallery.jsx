@@ -54,7 +54,7 @@ const PhotoGallery = () => {
           <Box
             component="img"
             src={mockData[imagesCount].image}
-            alt="Example Image"
+            alt="Mobilya"
             sx={{
               width: "100%",
               height: { xs: "20rem", md: "30rem" },

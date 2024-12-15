@@ -7,14 +7,25 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
 const Carousel = () => {
-  const mockData = [{ image: photo1 }, { image: photo2 }, { image: photo3 }];
+  const mockData = [
+    {
+      image: photo1,
+      description:
+        "Mutfakta %50 indirim Akgün Mobilyada!",
+    },
+    {
+      image: photo2,
+      description:
+        "Mutfakta %50 indirim Akgün Mobilyada! Bu fırsatı Kaçırmayın",
+    },
+  ];
 
   const [imagesCount, setImagesCount] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setImagesCount((prevCount) => (prevCount + 1) % mockData.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -28,13 +39,31 @@ const Carousel = () => {
     <Box
       sx={{
         position: "relative",
-        height: { xs: "15rem", md: "35rem" },
+        height: { xs: "15rem", md: "32rem" },
         width: { xs: "100%", md: "65rem" },
         overflow: "hidden",
         margin: "auto",
       }}
     >
       <Box>
+        <Typography
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            color: "white",
+            fontSize: { xs: "1.2rem", md: "2rem" },
+            fontWeight: "bold",
+            textShadow: "4px 2px 8px rgba(0, 0, 0, 1)",
+            padding: "0 1rem",
+            textAlign: "center",
+            maxWidth: "80%",
+            lineHeight: 1.5,
+          }}
+        >
+          {mockData[imagesCount].description}
+        </Typography>
         <Box
           component="img"
           src={mockData[imagesCount].image}

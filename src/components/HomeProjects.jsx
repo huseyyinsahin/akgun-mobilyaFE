@@ -30,7 +30,7 @@ const HomeProjects = () => {
     },
   ];
   return (
-    <Container sx={{padding: { xs: "0rem 1rem 2rem 1rem", md: "0 0 5rem 0" }}} >
+    <Container sx={{ padding: { xs: "0rem 1rem 2rem 1rem", md: " 0rem" } }}>
       <Typography
         component="h2"
         sx={{
@@ -39,11 +39,17 @@ const HomeProjects = () => {
           fontSize: { xs: "2rem", md: "5rem" },
         }}
       >
-       Güncel Projelerimiz
+        Güncel Projelerimiz
       </Typography>
       <Grid container spacing={2}>
         {projects.map((proje) => (
-          <Grid key={proje.title} item xs={12} md={6} sx={{ position: "relative" }}>
+          <Grid
+            key={proje.title}
+            item
+            xs={12}
+            md={6}
+            sx={{ position: "relative" }}
+          >
             <Box
               component="img"
               src={proje.image}

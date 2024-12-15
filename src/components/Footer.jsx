@@ -85,7 +85,7 @@ const Footer = () => {
         }}
       >
         <Typography variant="body2">
-          © {new Date().getFullYear()} Akgün Mobilya & Dekorasyon
+          © 2024 Akgün Mobilya & Dekorasyon
         </Typography>
       </Box>
     </Box>
