@@ -43,7 +43,7 @@ const HomeProjects = () => {
       </Typography>
       <Grid container spacing={2}>
         {projects.map((proje) => (
-          <Grid item xs={12} md={6} sx={{ position: "relative" }}>
+          <Grid key={proje.title} item xs={12} md={6} sx={{ position: "relative" }}>
             <Box
               component="img"
               src={proje.image}
@@ -59,7 +59,7 @@ const HomeProjects = () => {
             ></Box>
             <Box
               sx={{
-                backgroundColor: "rgba(44, 44, 44, 0.4)",
+                backgroundColor: "rgba(172, 172, 172, 0.4)",
                 color: "white",
                 textAlign: "center",
                 fontSize: { xs: "0.8rem ", md: "1.3rem" },

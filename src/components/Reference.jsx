@@ -24,7 +24,7 @@ const Reference = () => {
       </Typography>
       <Grid container spacing={2}>
         {reference.map((ref) => (
-          <Grid item xs={12} md={4}>
+          <Grid key={ref} item xs={12} md={4}>
             <Box
               sx={{
                 backgroundColor: "#66785F",

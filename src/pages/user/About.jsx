@@ -11,7 +11,7 @@ const About = () => {
         width: "85vw",
         marginTop: "2rem",
         borderRadius: "15px",
-        background: "linear-gradient(to bottom,rgb(230, 230, 230), #f9f9f9)",
+        background: "linear-gradient(to bottom,rgb(242, 242, 242),rgb(255, 255, 255))",
       }}
     >
       <Typography
