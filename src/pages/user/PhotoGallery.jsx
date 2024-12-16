@@ -45,7 +45,8 @@ const PhotoGallery = () => {
         sx={{
           position: "relative",
           height: { xs: "20rem", md: "30rem" },
-          width: "100%",
+          width: { xs: "100%", md: "80rem" },
+          margin: "auto",
           overflow: "hidden",
           marginTop: "0.5rem",
         }}
@@ -58,8 +59,7 @@ const PhotoGallery = () => {
             sx={{
               width: "100%",
               height: { xs: "20rem", md: "30rem" },
-              boxShadow: 3,
-              objectFit: "contain" ,
+              objectFit: "contain",
               backgroundSize: "cover",
             }}
           />
@@ -90,12 +90,12 @@ const PhotoGallery = () => {
           }}
         />
       </Box>
-      <Divider />
+      <Divider sx={{ marginTop: "1rem" }} />
       <Container
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "space-around",
+          justifyContent: { xs: "space-around", md: "flex-start" },
           marginTop: "1rem",
           gap: "1rem",
         }}

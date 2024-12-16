@@ -10,8 +10,7 @@ const Carousel = () => {
   const mockData = [
     {
       image: photo1,
-      description:
-        "Mutfakta %50 indirim Akgün Mobilyada!",
+      description: "Mutfakta %50 indirim Akgün Mobilyada!",
     },
     {
       image: photo2,
@@ -40,7 +39,7 @@ const Carousel = () => {
       sx={{
         position: "relative",
         height: { xs: "15rem", md: "32rem" },
-        width: { xs: "100%", md: "65rem" },
+        width: { xs: "100%", md: "65rem", xl: "90rem" },
         overflow: "hidden",
         margin: "auto",
       }}

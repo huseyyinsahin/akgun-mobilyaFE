@@ -12,11 +12,10 @@ const Reference = () => {
     "Kahve Dünyası",
     "Starbucks",
     "Starbucks",
-    "Starbucks",
   ];
 
   return (
-    <Container sx={{ padding: { xs: "2rem 1rem", md: "5rem 0rem" } }}>
+    <Box sx={{ padding: { xs: "2rem 1rem", md: "5rem 0rem" } }}>
       <Typography
         component="h2"
         sx={{
@@ -39,17 +38,25 @@ const Reference = () => {
           sx={{
             display: "flex",
             animation: "scroll 12s linear infinite",
+            "@keyframes scroll": {
+              "0%": {
+                transform: "translateX(100%)",
+              },
+              "100%": {
+                transform: "translateX(-100%)",
+              },
+            },
           }}
         >
           {reference.map((ref, index) => (
             <Box
               key={index}
               sx={{
-                backgroundColor: "#66785F",
+                backgroundColor: "#2C2C2C",
                 color: "white",
                 textAlign: "center",
                 fontSize: { xs: "0.8rem ", md: "1.3rem" },
-                borderRadius: "1rem",
+                borderRadius: "0.3rem",
                 padding: "1rem",
                 margin: "0 1rem",
                 display: "flex",
@@ -63,17 +70,7 @@ const Reference = () => {
           ))}
         </Box>
       </Box>
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(100%);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
-        }
-      `}</style>
-    </Container>
+    </Box>
   );
 };
 

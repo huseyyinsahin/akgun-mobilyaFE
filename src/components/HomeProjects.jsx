@@ -2,6 +2,7 @@ import { Box, Container, Divider, Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import photo1 from "../assests/images/photo1.jpg";
 import photo2 from "../assests/images/photo2.jpg";
+import photo3 from "../assests/images/photo3.jpg";
 const HomeProjects = () => {
   const projects = [
     {
@@ -26,6 +27,10 @@ const HomeProjects = () => {
     },
     {
       image: photo2,
+      title: "Canpark Kahve Dünyası",
+    },
+    {
+      image: photo3,
       title: "Canpark Kahve Dünyası",
     },
   ];
@@ -53,12 +58,11 @@ const HomeProjects = () => {
             <Box
               component="img"
               src={proje.image}
-              alt="Example Image"
+              alt="Mobilya"
               sx={{
                 width: "100%",
-                height: "auto",
+                height: {xs:"13rem",md:"17rem"},
                 borderRadius: "8px",
-                boxShadow: 3,
                 objectFit: "cover",
                 backgroundSize: "cover",
               }}
