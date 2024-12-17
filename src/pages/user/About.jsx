@@ -62,3 +62,4 @@ const About = () => {
 };
 
 export default About;
+//* eski hali contacttan önceki home commitinde duruyor
