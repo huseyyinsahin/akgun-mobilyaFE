@@ -12,7 +12,7 @@ const Contact = () => {
           fontWeight: "bold",
           borderBottom: "2px solid #DADADA",
           padding: 4,
-          color: "#333",
+          color: "#2C2C2C",
         }}
       >
         İletişim
@@ -25,9 +25,7 @@ const Contact = () => {
             <Typography variant="h6" sx={{ mt: 2, fontWeight: "bold" }}>
               Telefon
             </Typography>
-            <Typography variant="body1" sx={{ color: "#555" }}>
-              +90 555 555 55 55
-            </Typography>
+            <Typography sx={{ color: "#555" }}>+90 553 495 3794</Typography>
           </Paper>
         </Grid>
 
@@ -37,8 +35,8 @@ const Contact = () => {
             <Typography variant="h6" sx={{ mt: 2, fontWeight: "bold" }}>
               E-posta
             </Typography>
-            <Typography variant="body1" sx={{ color: "#555" }}>
-              akgunmobilya@gmail.com
+            <Typography sx={{ color: "#555" }}>
+              akgunmobilyaharun@gmail.com
             </Typography>
           </Paper>
         </Grid>
