@@ -44,9 +44,9 @@ const Footer = () => {
           <Typography sx={{fontSize:"1.8rem"}} variant="h6" gutterBottom>
             İletişim
           </Typography>
-          <Typography variant="body2">Telefon: +90 555 555 55 55</Typography>
+          <Typography variant="body2">Telefon: +90 553 495 3794</Typography>
           <Typography variant="body2">
-            E-posta: akgunmobilya@gmail.com
+            E-posta: akgunmobilyaharun@gmail.com
           </Typography>
           <Typography variant="body2">
             Adres: Ataşehir İstanbul, Türkiye
@@ -66,7 +66,7 @@ const Footer = () => {
             }}
           >
             <IconButton
-              href="https://instagram.com"
+              href="https://instagram.com/akgunmobilyaist"
               target="_blank"
               sx={{ color: "#FFF" }}
             >
