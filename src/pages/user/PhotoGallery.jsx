@@ -67,7 +67,7 @@ const PhotoGallery = () => {
         sx={{
           position: "relative",
           height: { xs: "20rem", md: "30rem" },
-          width: { xs: "100%", md: "80rem" },
+          width: "100%",
           margin: "auto",
           overflow: "hidden",
           marginTop: "0.5rem",
@@ -119,7 +119,7 @@ const PhotoGallery = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: { xs: "space-around", md: "flex-start" },
+          justifyContent: { xs: "center", md: "flex-start" },
           marginTop: "1rem",
           gap: "1rem",
         }}
