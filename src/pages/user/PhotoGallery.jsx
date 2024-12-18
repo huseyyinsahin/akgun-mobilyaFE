@@ -2,6 +2,7 @@ import {
   Box,
   Card,
   Container,
+  Dialog,
   Divider,
   Pagination,
   Typography,
@@ -12,6 +13,7 @@ import photo2 from "../../assests/images/photo2.jpg";
 import photo3 from "../../assests/images/photo3.jpg";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import CloseIcon from "@mui/icons-material/Close";
 
 const PhotoGallery = () => {
   const [imagesCount, setImagesCount] = useState(0);
@@ -46,6 +48,19 @@ const PhotoGallery = () => {
     { image: photo2 },
   ];
 
+  const [open, setOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (img) => {
+    setSelectedImage(img);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedImage(null);
+  };
+
   return (
     <>
       <Box
@@ -62,12 +77,14 @@ const PhotoGallery = () => {
           <Box
             component="img"
             src={mockData[imagesCount].image}
+            onClick={() => handleImageClick(mockData[imagesCount].image)}
             alt="Mobilya"
             sx={{
               width: "100%",
               height: { xs: "20rem", md: "30rem" },
               objectFit: "contain",
               backgroundSize: "cover",
+              cursor: "pointer",
             }}
           />
         </Box>
@@ -130,6 +147,33 @@ const PhotoGallery = () => {
         count={10}
         variant="outlined"
       />
+      <Dialog open={open} onClose={handleClose} maxWidth="lg">
+        <>
+          <Box
+            component="img"
+            src={selectedImage}
+            alt="Mobilya"
+            sx={{
+              width: "100%",
+              height: "auto",
+              objectFit: "contain",
+              position: "relative",
+            }}
+          />
+          <CloseIcon
+            onClick={handleClose}
+            sx={{
+              position: "absolute",
+              top: "5px",
+              right: "5px",
+              border: "2px solid gray",
+              borderRadius: "10px",
+              cursor: "pointer",
+              color:"white"
+            }}
+          />
+        </>
+      </Dialog>
     </>
   );
 };
