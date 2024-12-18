@@ -1,4 +1,11 @@
-import { Box, Card, Container, Divider, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  Container,
+  Divider,
+  Pagination,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import photo1 from "../../assests/images/photo1.jpg";
 import photo2 from "../../assests/images/photo2.jpg";
@@ -118,6 +125,11 @@ const PhotoGallery = () => {
           </Box>
         ))}
       </Container>
+      <Pagination
+        sx={{ display: "flex", justifyContent: "center", marginTop: "1.5rem" }}
+        count={10}
+        variant="outlined"
+      />
     </>
   );
 };

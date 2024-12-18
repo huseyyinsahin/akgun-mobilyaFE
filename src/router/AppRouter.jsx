@@ -7,6 +7,7 @@ import Contact from "../pages/user/Contact";
 import MyProjects from "../pages/user/MyProjects";
 import PhotoGallery from "../pages/user/PhotoGallery";
 import Footer from "../components/Footer";
+import MyProjectsDetail from "../pages/user/MyProjectsDetail";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/photogallery", element: <PhotoGallery /> },
       { path: "/myprojects", element: <MyProjects /> },
+      { path: "/myprojects/:id", element: <MyProjectsDetail /> },
       { path: "/contact", element: <Contact /> },
     ],
   },
