@@ -2,10 +2,11 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Container } from "@mui/material";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   return (
     <AppBar
       position="static"
@@ -27,17 +28,24 @@ const Navbar = () => {
       >
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
+            onClick={() => navigate("/")}
             variant="h1"
             component="h1"
-            sx={{ fontFamily: "Lobster", fontSize: { xs: "1.8rem", md: "3.5rem" } }}
+            sx={{
+              cursor: "pointer",
+              fontFamily: "Lobster",
+              fontSize: { xs: "1.8rem", md: "3.5rem" },
+            }}
           >
             AKGÜN
           </Typography>
           <Typography
-            variant="h5"
+            onClick={() => navigate("/")}
+            variant="h1"
             sx={{
               fontFamily: "Lobster",
               fontSize: { xs: "0.6rem", md: "1.2rem" },
+              cursor: "pointer",
             }}
           >
             Mobilya & Dekorasyon
