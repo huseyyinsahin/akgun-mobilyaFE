@@ -40,10 +40,10 @@ const Reference = () => {
             animation: "scroll 12s linear infinite",
             "@keyframes scroll": {
               "0%": {
-                transform: "translateX(100%)",
+                transform: "translateX(150%)",
               },
               "100%": {
-                transform: "translateX(-100%)",
+                transform: "translateX(-110%)",
               },
             },
           }}
@@ -55,7 +55,7 @@ const Reference = () => {
                 backgroundColor: "#2C2C2C",
                 color: "white",
                 textAlign: "center",
-                fontSize: { xs: "0.8rem ", md: "1.3rem" },
+                fontSize: { xs: "1rem ", md: "1.3rem" },
                 borderRadius: "0.3rem",
                 padding: "1rem",
                 margin: "0 1rem",
