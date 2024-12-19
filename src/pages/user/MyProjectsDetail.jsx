@@ -40,12 +40,12 @@ const MyProjectsDetail = () => {
         onClick={() => navigate(-1)}
         sx={{
           position: "absolute",
-          top: "10px",
-          left: "25px",
+          top: { xs: "95px", md: "10px" },
+          left: { xs: "17px", md: "25px" },
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "8px 16px",
+          padding: { xs: "4px 8px", md: "8px 16px" },
           color: "white",
           borderRadius: "8px",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)",
