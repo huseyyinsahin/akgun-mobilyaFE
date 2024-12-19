@@ -26,7 +26,7 @@ const Carousel = () => {
       setImagesCount((prevCount) => (prevCount + 1) % mockData.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [imagesCount]);
 
   const handleCount = (num) => {
     if (imagesCount + num < 0) {
