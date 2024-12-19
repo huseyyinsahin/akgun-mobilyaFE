@@ -1,13 +1,15 @@
 import { Box, Container, Typography, Grid, Dialog } from "@mui/material";
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import photo1 from "../../assests/images/photo1.jpg";
 import photo2 from "../../assests/images/photo2.jpg";
 import photo3 from "../../assests/images/photo3.jpg";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const MyProjectsDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -33,7 +35,36 @@ const MyProjectsDetail = () => {
   const project = data[0];
 
   return (
-    <Container sx={{ mt: 4 }}>
+    <Container sx={{ mt: 4, position: "relative" }}>
+      <Box
+        onClick={() => navigate(-1)}
+        sx={{
+          position: "absolute",
+          top: "10px",
+          left: "25px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "8px 16px",
+          color: "white",
+          borderRadius: "8px",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+          backgroundColor: "#2C2C2C",
+          ":hover": {
+            backgroundColor: "rgb(0, 0, 0)",
+            transform: "scale(1.05)",
+          },
+          ":active": {
+            transform: "scale(0.95)",
+          },
+        }}
+      >
+        <ArrowBackIcon sx={{ marginRight: "8px" }} />
+        Geri
+      </Box>
+
       <Typography
         variant="h4"
         component="h1"
@@ -76,7 +107,7 @@ const MyProjectsDetail = () => {
             <Box
               component="img"
               src={img}
-              alt={project.title}
+              alt={project.image}
               sx={{
                 width: "100%",
                 height: "11rem",
@@ -112,7 +143,7 @@ const MyProjectsDetail = () => {
               border: "2px solid gray",
               borderRadius: "10px",
               cursor: "pointer",
-              color:"white"
+              color: "white",
             }}
           />
         </>
