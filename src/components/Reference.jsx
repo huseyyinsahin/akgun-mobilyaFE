@@ -2,16 +2,16 @@ import React from "react";
 import { Box, Container, Grid, Typography } from "@mui/material";
 
 const Reference = () => {
-  const reference = [
-    "Kahve Dünyası",
-    "Starbucks",
-    "Kahve Dünyası",
-    "Starbucks",
-    "Kahve Dünyası",
-    "Starbucks",
-    "Kahve Dünyası",
-    "Starbucks",
-    "Starbucks",
+  const data = [
+    { ref: "Kahve Dünyası" },
+    { ref: "Starbucks" },
+    { ref: "Kahve Dünyası" },
+    { ref: "Starbucks" },
+    { ref: "Kahve Dünyası" },
+    { ref: "Starbucks" },
+    { ref: "Kahve Dünyası" },
+    { ref: "Starbucks" },
+    { ref: "Starbucks" },
   ];
 
   return (
@@ -48,7 +48,7 @@ const Reference = () => {
             },
           }}
         >
-          {reference.map((ref, index) => (
+          {data.map((item, index) => (
             <Box
               key={index}
               sx={{
@@ -65,7 +65,7 @@ const Reference = () => {
                 whiteSpace: "nowrap",
               }}
             >
-              {ref}
+              {item.ref}
             </Box>
           ))}
         </Box>
