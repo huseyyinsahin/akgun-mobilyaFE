@@ -42,7 +42,7 @@ const About = () => {
       <Divider style={{ marginBottom: "1.5rem", backgroundColor: "#2a3eb1" }} />
       <Box style={{ lineHeight: 1.8, textAlign: "justify" }}>
         {data.map((item) => (
-          <>
+          <Box key={item.text}>
             <Typography
               variant="h6"
               style={{
@@ -54,7 +54,7 @@ const About = () => {
               {item.text}
             </Typography>
             <br />
-          </>
+          </Box>
         ))}
       </Box>
     </Container>

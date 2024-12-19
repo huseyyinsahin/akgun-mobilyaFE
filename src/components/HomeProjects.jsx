@@ -59,9 +59,9 @@ const HomeProjects = () => {
         Güncel Projelerimiz
       </Typography>
       <Grid container spacing={2}>
-        {data.map((proje) => (
+        {data.map((proje,index) => (
           <Grid
-            key={proje.title}
+            key={index}
             item
             xs={12}
             md={6}

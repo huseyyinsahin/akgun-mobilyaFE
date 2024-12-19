@@ -126,7 +126,7 @@ const PhotoGallery = () => {
       >
         {mockData.map((item, index) => (
           <Box
-            key={item.image}
+            key={index}
             sx={{
               cursor: "pointer",
               borderBottom: imagesCount === index ? "2px solid black" : "none",

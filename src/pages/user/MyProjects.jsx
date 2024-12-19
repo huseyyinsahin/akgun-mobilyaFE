@@ -56,9 +56,9 @@ const MyProjects = () => {
   return (
     <Container>
       <Grid container spacing={2} sx={{ marginTop: "2rem" }}>
-        {data.map((proje) => (
+        {data.map((proje,index) => (
           <Grid
-            key={proje.title}
+            key={index}
             item
             xs={12}
             md={6}
