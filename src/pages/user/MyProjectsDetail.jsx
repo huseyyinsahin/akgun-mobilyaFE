@@ -25,7 +25,7 @@ const MyProjectsDetail = () => {
 
   const data = [
     {
-      title: "Kahve Dünyası Trabzon",
+      title: "Kahve Dünyası Trabzon Kahve Dünyası Trabzon Trabzon",
       image: [photo1, photo2, photo3],
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet vero voluptatem expedita dicta alias architecto libero, fugit, quisquam doloremque maiores, doloribus vitae consequatur illo dolores voluptatum esse laboriosam. Eum blanditiis corporis cumque corrupti dolores consectetur unde deserunt, nisi aliquid, molestias accusamus aperiam illo voluptatem odit quaerat! Modi repellat tempore aliquam, eaque blanditiis laborum omnis excepturi harum atque delectus accusamus laboriosam saepe commodi dolore quidem, molestiae sit vel, exercitationem possimus dignissimos ipsa maxime. Architecto vitae rerum quo obcaecati eveniet vero velit voluptas doloribus sint hic, est laborum minima, odit consectetur, et neque sapiente. Fugit ipsum suscipit consectetur necessitatibus enim blanditiis ratione, dolore ducimus temporibus? Modi sequi explicabo labore nostrum. Eum quos, ducimus illum veniam enim perferendis minima animi aperiam earum quis accusantium provident maxime doloremque maiores iusto aliquam? Velit sed adipisci consequatur, consequuntur voluptas quis repellendus placeat doloribus, quidem nulla, porro labore asperiores sint. Ducimus doloribus, dicta sequi consectetur in reiciendis?",
@@ -36,38 +36,9 @@ const MyProjectsDetail = () => {
   const project = data[0];
 
   return (
-    <Container sx={{ mt: 4, position: "relative" }}>
-      <Box
-        onClick={() => navigate(-1)}
-        sx={{
-          position: "absolute",
-          top: { xs: "95px", md: "10px" },
-          left: { xs: "17px", md: "25px" },
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: { xs: "4px 8px", md: "8px 16px" },
-          color: "white",
-          borderRadius: "8px",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-          backgroundColor: "#2C2C2C",
-          ":hover": {
-            backgroundColor: "rgb(0, 0, 0)",
-            transform: "scale(1.05)",
-          },
-          ":active": {
-            transform: "scale(0.95)",
-          },
-        }}
-      >
-        <ArrowBackIcon sx={{ marginRight: "8px" }} />
-        Geri
-      </Box>
-
+    <Container sx={{ mt: 4 }}>
       <Typography
-        variant="h4"
+        variant="h2"
         component="h1"
         gutterBottom
         textAlign="center"
@@ -76,21 +47,50 @@ const MyProjectsDetail = () => {
         {project.title}
       </Typography>
 
-      <Box
-        component="img"
-        src={project.image[0]}
-        alt={project.title}
-        sx={{
-          width: "100%",
-          height: { xs: "15rem", md: "30rem" },
-          objectFit: "cover",
-          borderRadius: 2,
-          mb: 3,
-          cursor: "pointer",
-        }}
-        onClick={() => handleImageClick(project.image[0])}
-      />
-
+      <Box sx={{ position: "relative" }}>
+        <Box
+          component="img"
+          src={project.image[0]}
+          alt={project.title}
+          sx={{
+            width: "100%",
+            height: { xs: "15rem", md: "30rem" },
+            objectFit: "cover",
+            borderRadius: 2,
+            mb: 3,
+            cursor: "pointer",
+          }}
+          onClick={() => handleImageClick(project.image[0])}
+        />
+        <Box
+          onClick={() => navigate(-1)}
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: { xs: "4px 8px", md: "8px 16px" },
+            color: "white",
+            borderRadius: "8px",
+            boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.4)",
+            cursor: "pointer",
+            transition: "all 0.3s ease",
+            backgroundColor: "#2C2C2C",
+            ":hover": {
+              backgroundColor: "rgb(0, 0, 0)",
+              transform: "scale(1.05)",
+            },
+            ":active": {
+              transform: "scale(0.95)",
+            },
+          }}
+        >
+          <ArrowBackIcon sx={{ marginRight: "8px" }} />
+          Geri
+        </Box>
+      </Box>
       <Typography variant="body1">{project.description}</Typography>
       <Typography
         variant="h6"
