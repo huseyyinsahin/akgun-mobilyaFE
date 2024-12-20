@@ -38,8 +38,8 @@ const MyProjectsDetail = () => {
   return (
     <Container sx={{ mt: 4 }}>
       <Typography
-        variant="h2"
-        component="h1"
+        variant="h4"
+        component="h2"
         gutterBottom
         textAlign="center"
         sx={{ fontWeight: "bold" }}
