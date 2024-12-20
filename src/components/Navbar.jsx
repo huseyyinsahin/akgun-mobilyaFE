@@ -98,50 +98,50 @@ const Navbar = () => {
               />
               <NavLink
                 to="/"
-                style={{
+                style={({ isActive }) => ({
+                  color: isActive ? "#002B71" : "black",
                   textDecoration: "none",
-                  color: "black",
-                }}
+                })}
                 onClick={() => toggleDrawer(false)}
               >
                 Anasayfa
               </NavLink>
               <NavLink
                 to="/about"
-                style={{
+                style={({ isActive }) => ({
+                  color: isActive ? "#002B71" : "black",
                   textDecoration: "none",
-                  color: "black",
-                }}
+                })}
                 onClick={() => toggleDrawer(false)}
               >
                 Hakkımızda
               </NavLink>
               <NavLink
                 to="/photogallery"
-                style={{
+                style={({ isActive }) => ({
+                  color: isActive ? "#002B71" : "black",
                   textDecoration: "none",
-                  color: "black",
-                }}
+                })}
                 onClick={() => toggleDrawer(false)}
               >
                 Galeri
               </NavLink>
               <NavLink
                 to="/myprojects"
-                style={{
+                style={({ isActive }) => ({
+                  color: isActive ? "#002B71" : "black",
                   textDecoration: "none",
-                  color: "black",
-                }}
+                })}
                 onClick={() => toggleDrawer(false)}
               >
                 Projelerimiz
               </NavLink>
               <NavLink
                 to="/contact"
-                style={{
+                style={({ isActive }) => ({
+                  color: isActive ? "#002B71" : "black",
                   textDecoration: "none",
-                  color: "black",
-                }}
+                })}
                 onClick={() => toggleDrawer(false)}
               >
                 İletişim
@@ -158,43 +158,46 @@ const Navbar = () => {
           >
             <NavLink
               to="/"
-              style={{
+              style={({ isActive }) => ({
+                color: isActive ? "#002B71" : "black",
                 textDecoration: "none",
-                color: "black",
-              }}
+              })}
             >
               Anasayfa
             </NavLink>
             <NavLink
               to="/about"
-              style={{
+              style={({ isActive }) => ({
+                color: isActive ? "#002B71" : "black",
                 textDecoration: "none",
-                color: "black",
-              }}
+              })}
             >
               Hakkımızda
             </NavLink>
             <NavLink
               to="/photogallery"
-              style={{
+              style={({ isActive }) => ({
+                color: isActive ? "#002B71" : "black",
                 textDecoration: "none",
-                color: "black",
-              }}
+              })}
             >
               Galeri
             </NavLink>
             <NavLink
               to="/myprojects"
-              style={{
+              style={({ isActive }) => ({
+                color: isActive ? "#002B71" : "black",
                 textDecoration: "none",
-                color: "black",
-              }}
+              })}
             >
               Projelerimiz
             </NavLink>
             <NavLink
               to="/contact"
-              style={{ textDecoration: "none", color: "black" }}
+              style={({ isActive }) => ({
+                color: isActive ? "#002B71" : "black",
+                textDecoration: "none",
+              })}
             >
               İletişim
             </NavLink>
