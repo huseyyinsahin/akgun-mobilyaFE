@@ -92,12 +92,19 @@ const MyProjectsDetail = () => {
       />
 
       <Typography variant="body1">{project.description}</Typography>
+      <Typography
+        variant="h6"
+        component="h4"
+        sx={{ color: "gray", textAlign: "right", mt: 2 }}
+      >
+        {project.createdAt}
+      </Typography>
 
       <Typography
         variant="h5"
         component="h2"
         gutterBottom
-        sx={{ fontWeight: "bold", mt: 4 }}
+        sx={{ fontWeight: "bold", mt: 1 }}
       >
         Ek Resimler
       </Typography>
