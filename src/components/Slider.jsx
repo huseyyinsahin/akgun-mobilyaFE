@@ -6,7 +6,7 @@ import photo3 from "../assests/images/photo3.jpg";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-const Carousel = () => {
+const Slider = () => {
   const mockData = [
     {
       image: photo1,
@@ -105,4 +105,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default Slider;
