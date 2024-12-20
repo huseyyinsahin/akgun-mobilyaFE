@@ -79,7 +79,7 @@ const HomeProjects = () => {
                 objectFit: "cover",
                 backgroundSize: "cover",
               }}
-            ></Box>
+            />
             <Box
               sx={{
                 backgroundColor: "rgba(172, 172, 172, 0.4)",

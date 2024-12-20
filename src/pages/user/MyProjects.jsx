@@ -81,7 +81,7 @@ const MyProjects = () => {
                 objectFit: "cover",
                 backgroundSize: "cover",
               }}
-            ></Box>
+            />
             <Box
               sx={{
                 backgroundColor: "#2C2C2C",
