@@ -8,6 +8,12 @@ import MyProjects from "../pages/user/MyProjects";
 import PhotoGallery from "../pages/user/PhotoGallery";
 import Footer from "../components/Footer";
 import MyProjectsDetail from "../pages/user/MyProjectsDetail";
+import AdminLogin from "../pages/admin/AdminLogin";
+import AdminHome from "../pages/admin/AdminHome";
+import AdminAbout from "../pages/admin/AdminAbout";
+import AdminPhotoGallery from "../pages/admin/AdminPhotoGallery";
+import AdminMyProjects from "../pages/admin/AdminMyProjects";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +32,42 @@ const router = createBrowserRouter([
       { path: "/myprojects", element: <MyProjects /> },
       { path: "/myprojects/:id", element: <MyProjectsDetail /> },
       { path: "/contact", element: <Contact /> },
+      {
+        path: "/adminlogin",
+        element: <AdminLogin />,
+      },
+      {
+        path: "/adminhome",
+        element: (
+          <PrivateRouter>
+            <AdminHome />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminAbout",
+        element: (
+          <PrivateRouter>
+            <AdminAbout />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminphotogallery",
+        element: (
+          <PrivateRouter>
+            <AdminPhotoGallery />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminmyprojects",
+        element: (
+          <PrivateRouter>
+            <AdminMyProjects />
+          </PrivateRouter>
+        ),
+      },
     ],
   },
 ]);
