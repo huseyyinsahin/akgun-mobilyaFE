@@ -28,9 +28,10 @@ function HomeCards() {
           Bu bilgiler yüklenemedi, şuanda bir hata var sayfayı yenileyiniz!
         </Alert>
       )}
+
       {loading ? (
         <Container
-          style={{
+          sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

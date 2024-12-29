@@ -1,107 +1,136 @@
-import { Box, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  CircularProgress,
+  Container,
+  Typography,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
-import photo1 from "../assests/images/photo1.jpg";
-import photo2 from "../assests/images/photo2.jpg";
-import photo3 from "../assests/images/photo3.jpg";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import useSliderRequest from "../hooks/useSliderRequest";
+import { useSelector } from "react-redux";
 
 const Slider = () => {
-  const mockData = [
-    {
-      image: photo1,
-      description: "Mutfakta %50 indirim Akgün Mobilyada!",
-    },
-    {
-      image: photo2,
-      description:
-        "Mutfakta %50 indirim Akgün Mobilyada! Bu fırsatı Kaçırmayın",
-    },
-  ];
+  const { getSlider } = useSliderRequest();
+
+  useEffect(() => {
+    getSlider();
+  }, []);
+
+  const { slider, error, loading } = useSelector((state) => state.data);
+
+  console.log(slider);
 
   const [imagesCount, setImagesCount] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setImagesCount((prevCount) => (prevCount + 1) % mockData.length);
+      setImagesCount((prevCount) => (prevCount + 1) % slider.length);
     }, 5000);
     return () => clearInterval(interval);
   }, [imagesCount]);
 
   const handleCount = (num) => {
     if (imagesCount + num < 0) {
-      num = mockData.length - 1;
+      num = slider.length - 1;
     }
-    setImagesCount((prevCount) => (prevCount + num) % mockData.length);
+    setImagesCount((prevCount) => (prevCount + num) % slider.length);
   };
+
+  console.log(
+    `${process.env.REACT_APP_BASE_URL}/${slider[imagesCount]?.image}`
+  );
+
   return (
-    <Box
-      sx={{
-        position: "relative",
-        height: { xs: "15rem", md: "32rem" },
-        width: { xs: "100%", md: "65rem", xl: "90rem" },
-        overflow: "hidden",
-        margin: "auto",
-      }}
-    >
-      <Box>
-        <Typography
+    <>
+      {error && (
+        <Alert severity="error" sx={{ width: "80%", margin: "auto" }}>
+          Bu bilgiler yüklenemedi, şuanda bir hata var sayfayı yenileyiniz!
+        </Alert>
+      )}
+
+      {loading ? (
+        <Container
           sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            color: "white",
-            fontSize: { xs: "1.2rem", md: "2rem" },
-            fontWeight: "bold",
-            textShadow: "4px 2px 8px rgba(0, 0, 0, 1)",
-            padding: "0 1rem",
-            textAlign: "center",
-            maxWidth: "80%",
-            lineHeight: 1.5,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
           }}
         >
-          {mockData[imagesCount].description}
-        </Typography>
+          <CircularProgress size={150} />
+        </Container>
+      ) : (
         <Box
-          component="img"
-          src={mockData[imagesCount].image}
-          alt="Example Image"
           sx={{
-            width: "100%",
-            height: "auto",
-            boxShadow: 3,
-            objectFit: "cover",
-            backgroundSize: "cover",
+            position: "relative",
+            height: { xs: "15rem", md: "32rem" },
+            width: { xs: "100%", md: "65rem", xl: "90rem" },
+            overflow: "hidden",
+            margin: "auto",
           }}
-        />
-      </Box>
-      <ChevronLeftIcon
-        onClick={() => handleCount(-1)}
-        sx={{
-          fontSize: "3rem",
-          position: "absolute",
-          top: "50%",
-          left: 10,
-          transform: "translateY(-50%)",
-          color: "black",
-          cursor: "pointer",
-        }}
-      />
+        >
+          <Box>
+            <Typography
+              sx={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                color: "white",
+                fontSize: { xs: "1.2rem", md: "2rem" },
+                fontWeight: "bold",
+                textShadow: "4px 2px 8px rgba(0, 0, 0, 1)",
+                padding: "0 1rem",
+                textAlign: "center",
+                maxWidth: "80%",
+                lineHeight: 1.5,
+              }}
+            >
+              {slider[imagesCount]?.title}
+            </Typography>
+            <Box
+              component="img"
+              src={`${process.env.REACT_APP_BASE_URL}/${slider[imagesCount]?.image}`}
+              alt="Example Image"
+              sx={{
+                width: "100%",
+                height: "auto",
+                boxShadow: 3,
+                objectFit: "cover",
+                backgroundSize: "cover",
+              }}
+            />
+          </Box>
+          <ChevronLeftIcon
+            onClick={() => handleCount(-1)}
+            sx={{
+              fontSize: "3rem",
+              position: "absolute",
+              top: "50%",
+              left: 10,
+              transform: "translateY(-50%)",
+              color: "black",
+              cursor: "pointer",
+            }}
+          />
 
-      <ChevronRightIcon
-        onClick={() => handleCount(1)}
-        sx={{
-          fontSize: "3rem",
-          position: "absolute",
-          top: "50%",
-          right: 10,
-          transform: "translateY(-50%)",
-          color: "",
-          cursor: "pointer",
-        }}
-      />
-    </Box>
+          <ChevronRightIcon
+            onClick={() => handleCount(1)}
+            sx={{
+              fontSize: "3rem",
+              position: "absolute",
+              top: "50%",
+              right: 10,
+              transform: "translateY(-50%)",
+              color: "",
+              cursor: "pointer",
+            }}
+          />
+        </Box>
+      )}
+    </>
   );
 };
 
