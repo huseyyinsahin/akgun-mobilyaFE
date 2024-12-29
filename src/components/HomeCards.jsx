@@ -20,7 +20,7 @@ function HomeCards() {
   }, []);
 
   const { homeCard, error, loading } = useSelector((state) => state.data);
-
+  console.log(homeCard);
   return (
     <>
       {error && (
@@ -44,7 +44,7 @@ function HomeCards() {
         <Box sx={{ padding: { xs: "2rem", md: "4rem 5rem" } }}>
           <Grid container spacing={4} justifyContent="center">
             {homeCard.map((item) => (
-              <Grid key={item.text} item xs={12} sm={6}>
+              <Grid key={item._id} item xs={12} sm={6}>
                 <Card
                   sx={{
                     height: "100%",
