@@ -1,5 +1,12 @@
 import React, { useEffect } from "react";
-import { Alert, Box, CircularProgress, Container, Grid, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  CircularProgress,
+  Container,
+  Grid,
+  Typography,
+} from "@mui/material";
 import useReferenceRequest from "../hooks/useReferenceRequest";
 import { useSelector } from "react-redux";
 
@@ -10,8 +17,8 @@ const Reference = () => {
     getReference();
   }, []);
 
-  const { reference, loading, error } = useSelector((state) => state.data);
-  console.log(reference);
+  const { reference: ref, loading, error } = useSelector((state) => state.data);
+  console.log(ref);
   return (
     <>
       {error && (
@@ -28,7 +35,7 @@ const Reference = () => {
             height: "40vh",
           }}
         >
-          <CircularProgress size={100} />
+          <CircularProgress color="inherit" size={100} />
         </Container>
       ) : (
         <Box sx={{ padding: { xs: "2rem 1rem", md: "5rem 0rem" } }}>
@@ -64,7 +71,7 @@ const Reference = () => {
                 },
               }}
             >
-              {reference.map((item) => (
+              {ref.map((item) => (
                 <Box
                   key={item._id}
                   sx={{

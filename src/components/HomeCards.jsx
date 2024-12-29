@@ -35,10 +35,10 @@ function HomeCards() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "90vh",
           }}
         >
-          <CircularProgress size={150} />
+          <CircularProgress color="inherit" size={150} />
         </Container>
       ) : (
         <Box sx={{ padding: { xs: "2rem", md: "4rem 5rem" } }}>

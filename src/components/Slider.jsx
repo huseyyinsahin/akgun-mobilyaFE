@@ -56,10 +56,10 @@ const Slider = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "90vh",
           }}
         >
-          <CircularProgress size={150} />
+          <CircularProgress color="inherit" size={150} />
         </Container>
       ) : (
         <Box
