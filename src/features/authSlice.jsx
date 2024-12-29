@@ -30,4 +30,3 @@ const authSlice = createSlice({
 export const { start, loginSuccess, registerSuccess, logoutSuccess, fail } =
   authSlice.actions;
 export default authSlice.reducer;
-//! en son
