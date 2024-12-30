@@ -1,53 +1,47 @@
-import {
-  Box,
-  Card,
-  Container,
-  Dialog,
-  Divider,
-  Pagination,
-  Typography,
-} from "@mui/material";
-import React, { useState } from "react";
-import photo1 from "../../assests/images/photo1.jpg";
-import photo2 from "../../assests/images/photo2.jpg";
-import photo3 from "../../assests/images/photo3.jpg";
+import { Box, Container, Dialog, Divider, Pagination } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import CloseIcon from "@mui/icons-material/Close";
+import usePhotoGalleryRequest from "../../hooks/usePhotoGalleryRequest";
+import { useSelector } from "react-redux";
 
 const PhotoGallery = () => {
+  //-------------------------------------------------------------
+  // istek atma ve sayfa sayısı
+  const { getPhotoGallery } = usePhotoGalleryRequest();
+
+  useEffect(() => {
+    getPhotoGallery();
+  }, []);
+
+  const { photoGallery, photoGalleryPages } = useSelector(
+    (state) => state.data
+  );
+
+  const [page, setPage] = useState(1);
+
+  const handlePage = (e, val) => {
+    setPage(val);
+    getPhotoGallery(val);
+  };
+
+  //-------------------------------------------------------------
+  // hangi görselde oldugumuzu ve görselin indexini tutan kodlar
   const [imagesCount, setImagesCount] = useState(0);
 
   const handleCount = (num) => {
     if (imagesCount + num < 0) {
-      num = mockData.length - 1;
+      num = photoGallery.length - 1;
     }
-    setImagesCount((prevCount) => (prevCount + num) % mockData.length);
+    setImagesCount((prevCount) => (prevCount + num) % photoGallery.length);
   };
 
   const handlePhoto = (num) => {
     setImagesCount(num);
   };
 
-  const mockData = [
-    { image: photo1 },
-    { image: photo3 },
-    { image: photo1 },
-    { image: photo2 },
-    { image: photo3 },
-    { image: photo2 },
-    { image: photo3 },
-    { image: photo2 },
-    { image: photo1 },
-    { image: photo2 },
-    { image: photo2 },
-    { image: photo2 },
-    { image: photo2 },
-    { image: photo2 },
-    { image: photo2 },
-    { image: photo2 },
-  ];
-
+  // görselleri tam ekran görmek için
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -76,8 +70,8 @@ const PhotoGallery = () => {
         <Box>
           <Box
             component="img"
-            src={mockData[imagesCount].image}
-            onClick={() => handleImageClick(mockData[imagesCount].image)}
+            src={`${process.env.REACT_APP_BASE_URL}/${photoGallery[imagesCount]?.image}`}
+            onClick={() => handleImageClick(photoGallery[imagesCount].image)}
             alt="Mobilya"
             sx={{
               width: "100%",
@@ -124,9 +118,9 @@ const PhotoGallery = () => {
           gap: "1rem",
         }}
       >
-        {mockData.map((item, index) => (
+        {photoGallery.map((item, index) => (
           <Box
-            key={index}
+            key={item._id}
             sx={{
               cursor: "pointer",
               borderBottom: imagesCount === index ? "2px solid black" : "none",
@@ -144,14 +138,16 @@ const PhotoGallery = () => {
       </Container>
       <Pagination
         sx={{ display: "flex", justifyContent: "center", marginTop: "1.5rem" }}
-        count={10}
+        onChange={handlePage}
+        page={page}
+        count={photoGalleryPages.total}
         variant="outlined"
       />
       <Dialog open={open} onClose={handleClose} maxWidth="lg">
         <>
           <Box
             component="img"
-            src={selectedImage}
+            src={`${process.env.REACT_APP_BASE_URL}/${selectedImage}`}
             alt="Mobilya"
             sx={{
               width: "100%",
@@ -169,7 +165,7 @@ const PhotoGallery = () => {
               border: "2px solid gray",
               borderRadius: "10px",
               cursor: "pointer",
-              color:"white"
+              color: "white",
             }}
           />
         </>

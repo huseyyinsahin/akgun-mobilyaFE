@@ -20,4 +20,3 @@ const useSliderRequest = () => {
 };
 
 export default useSliderRequest;
-// ?page=${pageCount}&limit=5
