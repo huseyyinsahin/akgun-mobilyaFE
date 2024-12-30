@@ -7,6 +7,7 @@ import usePhotoGalleryRequest from "../../hooks/usePhotoGalleryRequest";
 import { useSelector } from "react-redux";
 
 const PhotoGallery = () => {
+  //! loading ve error
   //-------------------------------------------------------------
   // istek atma ve sayfa sayısı
   const { getPhotoGallery } = usePhotoGalleryRequest();
