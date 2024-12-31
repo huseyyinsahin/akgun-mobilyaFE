@@ -18,7 +18,6 @@ const Reference = () => {
   }, []);
 
   const { reference: ref, loading, error } = useSelector((state) => state.data);
-  console.log(ref);
   return (
     <>
       {!loading && error && (

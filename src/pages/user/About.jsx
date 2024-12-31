@@ -66,7 +66,7 @@ const About = () => {
             />
             <Box style={{ lineHeight: 1.8, textAlign: "justify" }}>
               {about.map((item) => (
-                <Box key={item.text}>
+                <Box key={item._id}>
                   <Typography
                     variant="h6"
                     style={{

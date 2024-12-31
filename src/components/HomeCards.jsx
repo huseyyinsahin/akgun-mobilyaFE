@@ -20,7 +20,7 @@ function HomeCards() {
   }, []);
 
   const { homeCard, error, loading } = useSelector((state) => state.data);
-  console.log(homeCard);
+
   return (
     <>
       {!loading && error && (

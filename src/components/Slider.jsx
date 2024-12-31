@@ -12,6 +12,7 @@ import useSliderRequest from "../hooks/useSliderRequest";
 import { useSelector } from "react-redux";
 
 const Slider = () => {
+  //--------------------------------------
   const { getSlider } = useSliderRequest();
 
   useEffect(() => {
@@ -19,11 +20,10 @@ const Slider = () => {
   }, []);
 
   const { slider, error, loading } = useSelector((state) => state.data);
-
-  console.log(slider);
-
+  //--------------------------------------
   const [imagesCount, setImagesCount] = useState(0);
 
+  //5 saniyede bir slider değişir
   useEffect(() => {
     const interval = setInterval(() => {
       setImagesCount((prevCount) => (prevCount + 1) % slider.length);
@@ -31,6 +31,7 @@ const Slider = () => {
     return () => clearInterval(interval);
   }, [imagesCount]);
 
+  //tıklandığında slider değişsin diye
   const handleCount = (num) => {
     if (imagesCount + num < 0) {
       num = slider.length - 1;
@@ -94,7 +95,7 @@ const Slider = () => {
               <Box
                 component="img"
                 src={`${process.env.REACT_APP_BASE_URL}/${slider[imagesCount]?.image}`}
-                alt="Example Image"
+                alt={slider[imagesCount]?.title}
                 sx={{
                   width: "100%",
                   height: "auto",

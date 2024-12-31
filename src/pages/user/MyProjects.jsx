@@ -70,7 +70,7 @@ const MyProjects = () => {
                   <Box
                     component="img"
                     src={`${process.env.REACT_APP_BASE_URL}/${proje.image[0]}`}
-                    alt="Mobilya"
+                    alt={proje.title}
                     sx={{
                       width: "100%",
                       height: { xs: "13rem", md: "17rem" },
