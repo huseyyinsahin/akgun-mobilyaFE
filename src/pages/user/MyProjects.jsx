@@ -65,11 +65,11 @@ const MyProjects = () => {
                   xs={12}
                   md={6}
                   sx={{ cursor: "pointer", margin: "0.6rem 0rem" }}
-                  onClick={() => navigate(`/myprojects/:${proje._id}`)}
+                  onClick={() => navigate(`/myprojects/${proje._id}`)}
                 >
                   <Box
                     component="img"
-                    src={proje.image[0]} //* base_url
+                    src={`${process.env.REACT_APP_BASE_URL}/${proje.image[0]}`}
                     alt="Mobilya"
                     sx={{
                       width: "100%",

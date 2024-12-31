@@ -11,6 +11,7 @@ const blogSlice = createSlice({
     photoGalleryPages: [],
     projects: [],
     projectsPages: [],
+    projectDetails: [],
     loading: "",
     error: "",
   },
@@ -45,6 +46,10 @@ const blogSlice = createSlice({
       state.projectsPages = payload.details.pages;
       state.loading = false;
     },
+    projectDetails: (state, { payload }) => {
+      state.projectDetails = payload.data;
+      state.loading = false;
+    },
     fail: (state) => {
       state.loading = false;
       state.error = true;
@@ -61,5 +66,6 @@ export const {
   photoGallery,
   projects,
   fail,
+  projectDetails,
 } = blogSlice.actions;
 export default blogSlice.reducer;
