@@ -44,7 +44,7 @@ const Slider = () => {
 
   return (
     <>
-      {error && (
+      {!loading && error && (
         <Alert severity="error" sx={{ width: "80%", margin: "auto" }}>
           Bu bilgiler yüklenemedi, şuanda bir hata var sayfayı yenileyiniz!
         </Alert>
@@ -62,73 +62,75 @@ const Slider = () => {
           <CircularProgress color="inherit" size={150} />
         </Container>
       ) : (
-        <Box
-          sx={{
-            position: "relative",
-            height: { xs: "15rem", md: "32rem" },
-            width: { xs: "100%", md: "65rem", xl: "90rem" },
-            overflow: "hidden",
-            margin: "auto",
-          }}
-        >
-          <Box>
-            <Typography
+        !error && (
+          <Box
+            sx={{
+              position: "relative",
+              height: { xs: "15rem", md: "32rem" },
+              width: { xs: "100%", md: "65rem", xl: "90rem" },
+              overflow: "hidden",
+              margin: "auto",
+            }}
+          >
+            <Box>
+              <Typography
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  color: "white",
+                  fontSize: { xs: "1.2rem", md: "2rem" },
+                  fontWeight: "bold",
+                  textShadow: "4px 2px 8px rgba(0, 0, 0, 1)",
+                  padding: "0 1rem",
+                  textAlign: "center",
+                  maxWidth: "80%",
+                  lineHeight: 1.5,
+                }}
+              >
+                {slider[imagesCount]?.title}
+              </Typography>
+              <Box
+                component="img"
+                src={`${process.env.REACT_APP_BASE_URL}/${slider[imagesCount]?.image}`}
+                alt="Example Image"
+                sx={{
+                  width: "100%",
+                  height: "auto",
+                  boxShadow: 3,
+                  objectFit: "cover",
+                  backgroundSize: "cover",
+                }}
+              />
+            </Box>
+            <ChevronLeftIcon
+              onClick={() => handleCount(-1)}
               sx={{
+                fontSize: "3rem",
                 position: "absolute",
                 top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                color: "white",
-                fontSize: { xs: "1.2rem", md: "2rem" },
-                fontWeight: "bold",
-                textShadow: "4px 2px 8px rgba(0, 0, 0, 1)",
-                padding: "0 1rem",
-                textAlign: "center",
-                maxWidth: "80%",
-                lineHeight: 1.5,
+                left: 10,
+                transform: "translateY(-50%)",
+                color: "black",
+                cursor: "pointer",
               }}
-            >
-              {slider[imagesCount]?.title}
-            </Typography>
-            <Box
-              component="img"
-              src={`${process.env.REACT_APP_BASE_URL}/${slider[imagesCount]?.image}`}
-              alt="Example Image"
+            />
+
+            <ChevronRightIcon
+              onClick={() => handleCount(1)}
               sx={{
-                width: "100%",
-                height: "auto",
-                boxShadow: 3,
-                objectFit: "cover",
-                backgroundSize: "cover",
+                fontSize: "3rem",
+                position: "absolute",
+                top: "50%",
+                right: 10,
+                transform: "translateY(-50%)",
+                color: "",
+                cursor: "pointer",
               }}
             />
           </Box>
-          <ChevronLeftIcon
-            onClick={() => handleCount(-1)}
-            sx={{
-              fontSize: "3rem",
-              position: "absolute",
-              top: "50%",
-              left: 10,
-              transform: "translateY(-50%)",
-              color: "black",
-              cursor: "pointer",
-            }}
-          />
-
-          <ChevronRightIcon
-            onClick={() => handleCount(1)}
-            sx={{
-              fontSize: "3rem",
-              position: "absolute",
-              top: "50%",
-              right: 10,
-              transform: "translateY(-50%)",
-              color: "",
-              cursor: "pointer",
-            }}
-          />
-        </Box>
+        )
       )}
     </>
   );

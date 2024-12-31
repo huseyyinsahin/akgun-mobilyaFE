@@ -1,4 +1,11 @@
-import { Box, Container, Dialog, Divider, Pagination } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Container,
+  Dialog,
+  Divider,
+  Pagination,
+} from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
@@ -7,7 +14,7 @@ import usePhotoGalleryRequest from "../../hooks/usePhotoGalleryRequest";
 import { useSelector } from "react-redux";
 
 const PhotoGallery = () => {
-  //! loading ve error
+  //! loading (belki)
   //-------------------------------------------------------------
   // istek atma ve sayfa sayısı
   const { getPhotoGallery } = usePhotoGalleryRequest();
@@ -16,7 +23,7 @@ const PhotoGallery = () => {
     getPhotoGallery();
   }, []);
 
-  const { photoGallery, photoGalleryPages } = useSelector(
+  const { photoGallery, photoGalleryPages, error } = useSelector(
     (state) => state.data
   );
 
@@ -58,6 +65,11 @@ const PhotoGallery = () => {
 
   return (
     <>
+      {error && (
+        <Alert severity="error" sx={{ width: "80%", margin: "auto" }}>
+          Bu bilgiler yüklenemedi, şuanda bir hata var sayfayı yenileyiniz!
+        </Alert>
+      )}
       <Box
         sx={{
           position: "relative",
