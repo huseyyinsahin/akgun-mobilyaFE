@@ -10,7 +10,7 @@ const useProjectsRequest = () => {
     dispatch(start());
     try {
       const { data } = await axiosPublic.get(
-        `projects?page=${pageCount}&limit=1` //artıcak limit
+        `projects?page=${pageCount}&limit=5` //artıcak limit
       );
       dispatch(projects(data));
       console.log(data);
