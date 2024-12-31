@@ -32,43 +32,43 @@ const router = createBrowserRouter([
       { path: "/myprojects", element: <MyProjects /> },
       { path: "/myprojects/:id", element: <MyProjectsDetail /> },
       { path: "/contact", element: <Contact /> },
-      {
-        path: "/adminlogin",
-        element: <AdminLogin />,
-      },
-      {
-        path: "/adminhome",
-        element: (
-          <PrivateRouter>
-            <AdminHome />
-          </PrivateRouter>
-        ),
-      },
-      {
-        path: "/adminAbout",
-        element: (
-          <PrivateRouter>
-            <AdminAbout />
-          </PrivateRouter>
-        ),
-      },
-      {
-        path: "/adminphotogallery",
-        element: (
-          <PrivateRouter>
-            <AdminPhotoGallery />
-          </PrivateRouter>
-        ),
-      },
-      {
-        path: "/adminmyprojects",
-        element: (
-          <PrivateRouter>
-            <AdminMyProjects />
-          </PrivateRouter>
-        ),
-      },
     ],
+  },
+  {
+    path: "/adminlogin",
+    element: <AdminLogin />,
+  },
+  {
+    path: "/adminhome",
+    element: (
+      <PrivateRouter>
+        <AdminHome />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: "/adminAbout",
+    element: (
+      <PrivateRouter>
+        <AdminAbout />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: "/adminphotogallery",
+    element: (
+      <PrivateRouter>
+        <AdminPhotoGallery />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: "/adminmyprojects",
+    element: (
+      <PrivateRouter>
+        <AdminMyProjects />
+      </PrivateRouter>
+    ),
   },
 ]);
 
