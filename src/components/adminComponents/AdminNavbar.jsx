@@ -1,10 +1,14 @@
 import React from 'react'
 
 const AdminNavbar = () => {
-    // admin panelinin navbarı yapılacak home => slider , homeCards , reference
-                                      // about
-                                      // photoGallery
-                                      // MyProjects
+    // admin panelinin navbarı yapılacak 
+                                     //  home 
+                                     //  slider ,
+                                     //  homeCards ,
+                                     //  reference
+                                     // about
+                                     // photoGallery
+                                     // MyProjects
   return (
     <div>
         

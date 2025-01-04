@@ -14,6 +14,9 @@ import AdminAbout from "../pages/admin/AdminAbout";
 import AdminPhotoGallery from "../pages/admin/AdminPhotoGallery";
 import AdminMyProjects from "../pages/admin/AdminMyProjects";
 import PrivateRouter from "./PrivateRouter";
+import AdminSlider from "../pages/admin/AdminSlider";
+import AdminHomeCard from "../pages/admin/AdminHomeCard";
+import AdminReference from "../pages/admin/AdminReference";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +46,30 @@ const router = createBrowserRouter([
     element: (
       <PrivateRouter>
         <AdminHome />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: "/adminslider",
+    element: (
+      <PrivateRouter>
+        <AdminSlider />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: "/adminhomecard",
+    element: (
+      <PrivateRouter>
+        <AdminHomeCard />
+      </PrivateRouter>
+    ),
+  },
+  {
+    path: "/adminreference",
+    element: (
+      <PrivateRouter>
+        <AdminReference />
       </PrivateRouter>
     ),
   },
