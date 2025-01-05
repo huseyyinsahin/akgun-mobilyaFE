@@ -20,12 +20,13 @@ const Footer = () => {
         <Grid item xs={12} md={4}>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
+            component="h2"
             sx={{ fontFamily: "Lobster", fontSize: { xs: "2.4rem", md: "3.5rem" } }}
           >
             AKGÜN
           </Typography>
           <Typography
-            variant="h5"
+            component="h2"
             sx={{
               fontFamily: "Lobster",
               fontSize: { xs: "0.9rem", md: "1.2rem" },

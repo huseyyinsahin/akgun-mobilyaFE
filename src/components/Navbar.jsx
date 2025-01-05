@@ -52,7 +52,7 @@ const Navbar = () => {
             </Typography>
             <Typography
               onClick={() => navigate("/")}
-              variant="h1"
+              component="h2"
               sx={{
                 fontFamily: "Lobster",
                 fontSize: { xs: "01rem", md: "1.2rem" },

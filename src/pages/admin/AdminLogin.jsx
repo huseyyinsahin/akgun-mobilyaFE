@@ -73,8 +73,8 @@ const AdminLogin = () => {
                   }}
                 >
                   <Typography
-                    variant="h1"
-                    component="h1"
+                    variant="h2"
+                    component="h2"
                     sx={{
                       cursor: "default",
                       fontFamily: "Lobster",
@@ -84,7 +84,8 @@ const AdminLogin = () => {
                     AKGÜN
                   </Typography>
                   <Typography
-                    variant="h1"
+                    variant="h2"
+                    component="h2"
                     sx={{
                       fontFamily: "Lobster",
                       fontSize: { xs: "01rem", md: "1.2rem" },
