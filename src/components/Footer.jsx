@@ -21,12 +21,14 @@ const Footer = () => {
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Typography
             component="h2"
+            variant="h2"
             sx={{ fontFamily: "Lobster", fontSize: { xs: "2.4rem", md: "3.5rem" } }}
           >
             AKGÜN
           </Typography>
           <Typography
             component="h2"
+            variant="h2"
             sx={{
               fontFamily: "Lobster",
               fontSize: { xs: "0.9rem", md: "1.2rem" },
