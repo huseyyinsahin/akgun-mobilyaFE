@@ -27,7 +27,18 @@ const useAuthRequest = () => {
     }
   };
 
-  return { login };
+  const logout = async () => {
+    try {
+      await axiosToken.get("auth/logout");
+      dispatch(logoutSuccess());
+      navigate("/");
+      toastSuccessNotify("Çıkış Yapıldı");
+    } catch (error) {
+      toastErrorNotify("Çıkış Başarısız!");
+    }
+  };
+
+  return { login, logout };
 };
 
 export default useAuthRequest;
