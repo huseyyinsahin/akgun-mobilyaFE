@@ -17,6 +17,7 @@ import PrivateRouter from "./PrivateRouter";
 import AdminSlider from "../pages/admin/AdminSlider";
 import AdminHomeCard from "../pages/admin/AdminHomeCard";
 import AdminReference from "../pages/admin/AdminReference";
+import AdminNavbar from "../components/adminComponents/AdminNavbar";
 
 const router = createBrowserRouter([
   {
@@ -42,60 +43,70 @@ const router = createBrowserRouter([
     element: <AdminLogin />,
   },
   {
-    path: "/adminhome",
     element: (
-      <PrivateRouter>
-        <AdminHome />
-      </PrivateRouter>
+      <>
+        <AdminNavbar />
+        <Outlet />
+      </>
     ),
-  },
-  {
-    path: "/adminslider",
-    element: (
-      <PrivateRouter>
-        <AdminSlider />
-      </PrivateRouter>
-    ),
-  },
-  {
-    path: "/adminhomecard",
-    element: (
-      <PrivateRouter>
-        <AdminHomeCard />
-      </PrivateRouter>
-    ),
-  },
-  {
-    path: "/adminreference",
-    element: (
-      <PrivateRouter>
-        <AdminReference />
-      </PrivateRouter>
-    ),
-  },
-  {
-    path: "/adminAbout",
-    element: (
-      <PrivateRouter>
-        <AdminAbout />
-      </PrivateRouter>
-    ),
-  },
-  {
-    path: "/adminphotogallery",
-    element: (
-      <PrivateRouter>
-        <AdminPhotoGallery />
-      </PrivateRouter>
-    ),
-  },
-  {
-    path: "/adminmyprojects",
-    element: (
-      <PrivateRouter>
-        <AdminMyProjects />
-      </PrivateRouter>
-    ),
+    children: [
+      {
+        path: "/adminhome",
+        element: (
+          <PrivateRouter>
+            <AdminHome />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminslider",
+        element: (
+          <PrivateRouter>
+            <AdminSlider />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminhomecard",
+        element: (
+          <PrivateRouter>
+            <AdminHomeCard />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminreference",
+        element: (
+          <PrivateRouter>
+            <AdminReference />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminAbout",
+        element: (
+          <PrivateRouter>
+            <AdminAbout />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminphotogallery",
+        element: (
+          <PrivateRouter>
+            <AdminPhotoGallery />
+          </PrivateRouter>
+        ),
+      },
+      {
+        path: "/adminmyprojects",
+        element: (
+          <PrivateRouter>
+            <AdminMyProjects />
+          </PrivateRouter>
+        ),
+      },
+    ],
   },
 ]);
 
