@@ -31,17 +31,32 @@ const AdminSlider = () => {
         padding: { xs: "1rem", md: "2rem" },
       }}
     >
-      <Typography
-        variant="h3"
+      <Box
         sx={{
-          marginBottom: "0.5rem",
-          fontWeight: "bold",
-          textAlign: "center",
-          color: "primary.main",
+          width: "65rem",
+          maxWidth: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
         }}
       >
-        Anasayfa Slider
-      </Typography>
+        <Typography
+          variant="h3"
+          sx={{
+            fontWeight: "bold",
+            color: "primary.main",
+            fontSize: { xs: "2rem", md: "3rem" },
+          }}
+        >
+          Anasayfa Slider
+        </Typography>
+        <Button
+          variant="contained"
+          sx={{ height: "2rem", textTransform: "none" }}
+        >
+          Yeni Ekle
+        </Button>
+      </Box>
       {slider?.map((item) => (
         <Card
           key={item._id}
