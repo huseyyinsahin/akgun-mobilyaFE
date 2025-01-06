@@ -7,11 +7,10 @@ const AdminHome = () => {
   return (
     <Box
       sx={{
-        height: { sx: "100vh", md: "calc(100vh - 6.1rem)" },
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: { xs: "1rem", md: "0rem 4rem", xl: "0rem 6rem" },
+        padding: { xs: "1rem", md: "1rem 4rem", xl: "0rem 6rem" },
       }}
     >
       <Grid2 container spacing={3}>
@@ -22,7 +21,7 @@ const AdminHome = () => {
               cursor: "pointer",
               border: "3px solid #1976D2",
               borderRadius: "12px",
-              height: { md: "14rem", xl: "20rem" },
+              height: { xs: "14rem", xl: "20rem" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -58,7 +57,7 @@ const AdminHome = () => {
               cursor: "pointer",
               border: "3px solid #1976D2",
               borderRadius: "12px",
-              height: { md: "14rem", xl: "20rem" },
+              height: { xs: "14rem", xl: "20rem" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -94,7 +93,7 @@ const AdminHome = () => {
               cursor: "pointer",
               border: "3px solid #1976D2",
               borderRadius: "12px",
-              height: { md: "14rem", xl: "20rem" },
+              height: { xs: "14rem", xl: "20rem" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -130,7 +129,7 @@ const AdminHome = () => {
               cursor: "pointer",
               border: "3px solid #1976D2",
               borderRadius: "12px",
-              height: { md: "14rem", xl: "20rem" },
+              height: { xs: "14rem", xl: "20rem" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -166,7 +165,7 @@ const AdminHome = () => {
               cursor: "pointer",
               border: "3px solid #1976D2",
               borderRadius: "12px",
-              height: { md: "14rem", xl: "20rem" },
+              height: { xs: "14rem", xl: "20rem" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -202,7 +201,7 @@ const AdminHome = () => {
               cursor: "pointer",
               border: "3px solid #1976D2",
               borderRadius: "12px",
-              height: { md: "14rem", xl: "20rem" },
+              height: { xs: "14rem", xl: "20rem" },
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
