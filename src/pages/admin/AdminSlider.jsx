@@ -1,4 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import {
+  Alert,
+  Box,
+  CircularProgress,
+  Container,
+  Typography,
+} from "@mui/material";
 import React, { useEffect } from "react";
 import useSliderRequest from "../../hooks/useSliderRequest";
 import { useSelector } from "react-redux";
@@ -11,128 +17,155 @@ import Button from "@mui/material/Button";
 import photo from "../../assets/images/photo2.jpg";
 
 const AdminSlider = () => {
-  //* loading error (farklı)
   const { getSlider } = useSliderRequest();
 
   useEffect(() => {
     getSlider();
   }, []);
 
-  const { slider } = useSelector((state) => state.data);
+  const { slider, loading, error } = useSelector((state) => state.data);
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "2rem",
-        padding: { xs: "1rem", md: "2rem" },
-      }}
-    >
-      <Box
-        sx={{
-          width: "65rem",
-          maxWidth: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <Typography
-          variant="h3"
+    <>
+      {!loading && error && (
+        <Alert severity="error" sx={{ width: "80%", margin: "auto" }}>
+          Bu bilgiler yüklenemedi, şuanda bir hata var sayfayı yenileyiniz!
+        </Alert>
+      )}
+
+      {loading ? (
+        <Container
           sx={{
-            fontWeight: "bold",
-            color: "primary.main",
-            fontSize: { xs: "2rem", md: "3rem" },
-          }}
-        >
-          Anasayfa Slider
-        </Typography>
-        <Button
-          variant="contained"
-          sx={{ height: "2rem", textTransform: "none" }}
-        >
-          Yeni Ekle
-        </Button>
-      </Box>
-      {slider?.map((item) => (
-        <Card
-          key={item._id}
-          sx={{
-            width: "65rem",
-            maxWidth: "100%",
-            height: { xs: "25rem", md: "15rem" },
             display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
-            borderRadius: "1rem",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "90vh",
           }}
         >
-          <CardMedia
-            sx={{
-              width: { xs: "100%", md: "40%" },
-              height: "15rem",
-            }}
-            image={photo}
-            // image={`${process.env.REACT_APP_BASE_URL}/${slider?.image}`}
-            title={item.title}
-          />
+          <CircularProgress color="primary" size={150} />
+        </Container>
+      ) : (
+        !error && (
           <Box
             sx={{
               display: "flex",
               flexDirection: "column",
-              padding: "1rem",
-              width: { xs: "100%", md: "60%" },
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "2rem",
+              padding: { xs: "1rem", md: "2rem" },
             }}
           >
-            <CardContent sx={{ height: "70%" }}>
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "text.primary",
-                }}
-              >
-                {item.title}
-              </Typography>
-            </CardContent>
-            <CardActions
+            <Box
               sx={{
+                width: "65rem",
+                maxWidth: "100%",
+                height: "3rem",
                 display: "flex",
-                justifyContent: { xs: "center", md: "flex-end" },
-                gap: "1rem",
-                height: "30%",
+                alignItems: "center",
+                justifyContent: "space-between",
               }}
             >
+              <Typography
+                variant="h3"
+                sx={{
+                  fontWeight: "bold",
+                  color: "primary.main",
+                  fontSize: { xs: "2rem", md: "3rem" },
+                }}
+              >
+                Anasayfa Slider
+              </Typography>
               <Button
                 variant="contained"
-                size="small"
+                sx={{ height: "2rem", textTransform: "none" }}
+              >
+                Ekle
+              </Button>
+            </Box>
+            {slider?.map((item) => (
+              <Card
+                key={item._id}
                 sx={{
-                  textTransform: "none",
-                  backgroundColor: "primary.main",
-                  "&:hover": { backgroundColor: "primary.dark" },
+                  width: "65rem",
+                  maxWidth: "100%",
+                  height: { xs: "25rem", md: "15rem" },
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)",
+                  borderRadius: "1rem",
                 }}
               >
-                Güncelle
-              </Button>
-              <Button
-                variant="outlined"
-                size="small"
-                sx={{
-                  textTransform: "none",
-                  borderColor: "error.main",
-                  color: "error.main",
-                  "&:hover": { backgroundColor: "error.light", color: "white" },
-                }}
-              >
-                Sil
-              </Button>
-            </CardActions>
+                <CardMedia
+                  sx={{
+                    width: { xs: "100%", md: "40%" },
+                    height: "15rem",
+                  }}
+                  image={photo}
+                  // image={`${process.env.REACT_APP_BASE_URL}/${slider?.image}`}
+                  alt={item.title}
+                />
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    padding: { xs: "0rem", md: "1rem" },
+                    width: { xs: "100%", md: "60%" },
+                    height: "15rem",
+                  }}
+                >
+                  <CardContent sx={{ height: "70%" }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        color: "text.primary",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </CardContent>
+                  <CardActions
+                    sx={{
+                      display: "flex",
+                      justifyContent: { xs: "center", md: "flex-end" },
+                      height: "30%",
+                      marginBottom: { xs: "0rem", md: "1rem" },
+                    }}
+                  >
+                    <Button
+                      variant="contained"
+                      size="small"
+                      sx={{
+                        textTransform: "none",
+                        backgroundColor: "primary.main",
+                        "&:hover": { backgroundColor: "primary.dark" },
+                      }}
+                    >
+                      Güncelle
+                    </Button>
+                    <Button
+                      variant="outlined"
+                      size="small"
+                      sx={{
+                        textTransform: "none",
+                        borderColor: "error.main",
+                        color: "error.main",
+                        "&:hover": {
+                          backgroundColor: "error.light",
+                          color: "white",
+                        },
+                      }}
+                    >
+                      Sil
+                    </Button>
+                  </CardActions>
+                </Box>
+              </Card>
+            ))}
           </Box>
-        </Card>
-      ))}
-    </Box>
+        )
+      )}
+    </>
   );
 };
 
