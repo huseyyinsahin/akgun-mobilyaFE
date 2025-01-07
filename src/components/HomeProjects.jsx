@@ -60,7 +60,7 @@ const HomeProjects = () => {
                   key={proje._id}
                   item
                   xs={12}
-                  md={6}
+                  sm={6}
                   sx={{ position: "relative", cursor: "pointer" }}
                   onClick={() => navigate(`myprojects/${proje._id}`)}
                 >

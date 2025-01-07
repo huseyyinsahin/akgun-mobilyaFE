@@ -6,7 +6,8 @@ const Contact = () => {
   return (
     <Container>
       <Typography
-        variant="h4"
+        variant="h2"
+        component="h2"
         sx={{
           textAlign: "center",
           fontWeight: "bold",

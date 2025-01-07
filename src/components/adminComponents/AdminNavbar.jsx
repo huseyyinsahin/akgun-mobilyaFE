@@ -73,8 +73,8 @@ const AdminNavbar = () => {
             Mobilya & Dekorasyon
           </Typography>
           <Typography
-            component="h2"
-            variant="h2"
+            component="h3"
+            variant="h3"
             sx={{
               fontSize: { xs: "0.8rem", md: "1rem" },
               cursor: "default",

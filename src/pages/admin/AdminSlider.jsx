@@ -116,9 +116,9 @@ const AdminSlider = () => {
                 >
                   <CardContent sx={{ height: "70%" }}>
                     <Typography
-                      variant="h6"
                       sx={{
                         color: "text.primary",
+                        fontSize:"1.1rem"
                       }}
                     >
                       {item.title}

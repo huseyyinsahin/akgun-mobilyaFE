@@ -67,7 +67,7 @@ const Slider = () => {
           <Box
             sx={{
               position: "relative",
-              height: { xs: "15rem", md: "32rem" },
+              height: { xs: "15rem", sm: "32rem" },
               width: { xs: "100%", md: "65rem", xl: "90rem" },
               overflow: "hidden",
               margin: "auto",

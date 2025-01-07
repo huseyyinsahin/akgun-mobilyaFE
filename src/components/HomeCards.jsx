@@ -42,7 +42,7 @@ function HomeCards() {
         </Container>
       ) : (
         !error && (
-          <Box sx={{ padding: { xs: "2rem", md: "4rem 5rem" } }}>
+          <Box sx={{ padding: { xs: "1rem", md: "4rem 5rem" } }}>
             <Grid container spacing={4} justifyContent="center">
               {homeCard.map((item) => (
                 <Grid key={item._id} item xs={12} sm={6}>
@@ -59,7 +59,9 @@ function HomeCards() {
                         "transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out",
                     }}
                   >
-                    <CardContent sx={{ padding: "2rem" }}>
+                    <CardContent
+                      sx={{ padding: { xs: "0.8rem", md: "1.5rem" } }}
+                    >
                       <Typography
                         variant="h5"
                         component="h2"
@@ -71,7 +73,10 @@ function HomeCards() {
                       <Typography
                         variant="body2"
                         color="textSecondary"
-                        sx={{ lineHeight: 1.8, fontSize: "1rem" }}
+                        sx={{
+                          lineHeight: 1.8,
+                          fontSize: { xs: "0.8rem", md: "1rem" },
+                        }}
                         paragraph
                       >
                         {item.text}

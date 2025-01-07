@@ -70,7 +70,12 @@ const Navbar = () => {
             <MenuIcon sx={{ color: "black" }} />
           </IconButton>
 
-          <Drawer anchor="top" open={open} onClose={() => toggleDrawer(false)}>
+          <Drawer
+            anchor="top"
+            open={open}
+            onClose={() => toggleDrawer(false)}
+            sx={{ position: "relative" }}
+          >
             <Box
               sx={{
                 width: 250,
@@ -81,15 +86,14 @@ const Navbar = () => {
                 gap: "1rem",
                 marginLeft: "1.5rem",
                 fontSize: "1.6rem",
-                position: "relative",
               }}
             >
               <CloseIcon
                 onClick={() => toggleDrawer(false)}
                 sx={{
                   position: "absolute",
-                  top: "0px",
-                  right: "-40px",
+                  top: "20px",
+                  right: "20px",
                   border: "2px solid black",
                   borderRadius: "10px",
                   cursor: "pointer",

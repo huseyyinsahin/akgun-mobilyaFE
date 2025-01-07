@@ -4,5 +4,9 @@
   margin: 0;
   padding: 0;
   box-sizing: "border-box";
-  font-family: "Merriweather", serif;
+  font-family: "Merriweather", serif !important;
+}
+h1,
+h2 {
+  font-family: "Lobster", serif !important;
 }

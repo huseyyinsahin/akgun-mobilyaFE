@@ -50,8 +50,8 @@ const About = () => {
             }}
           >
             <Typography
-              variant="h3"
-              component="div"
+              variant="h2"
+              component="h2"
               style={{
                 fontWeight: "bold",
                 textAlign: "center",
