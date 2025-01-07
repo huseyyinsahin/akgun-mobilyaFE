@@ -21,7 +21,6 @@ const Navbar = () => {
       <Box sx={{ height: "6.1rem" }}></Box>
 
       <AppBar
-        position="fixed"
         sx={{
           height: "6rem",
           display: "flex",

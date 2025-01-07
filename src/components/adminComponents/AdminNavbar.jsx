@@ -8,28 +8,41 @@ const AdminNavbar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Box sx={{ height: "6.1rem" }}></Box>
+      <Box sx={{ height: "6.3rem" }}></Box>
 
       <AppBar
         sx={{
-          height: "6rem",
+          height: "6.2rem",
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
           flexDirection: "row",
         }}
       >
-        <Button
-          onClick={() => navigate("/")}
-          sx={{
-            color: "white",
-            backgroundColor: "rgb(0, 128, 255)",
-            textTransform: "capitalize",
-            "&:hover": { backgroundColor: "lightGray", color: "gray" },
-          }}
-        >
-          Siteye Dön
-        </Button>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
+          <Button
+            onClick={() => navigate("/")}
+            sx={{
+              color: "white",
+              backgroundColor: "rgb(0, 128, 255)",
+              textTransform: "capitalize",
+              "&:hover": { backgroundColor: "lightGray", color: "gray" },
+            }}
+          >
+            Siteye Dön
+          </Button>
+          <Button
+            onClick={() => navigate(-1)}
+            sx={{
+              color: "white",
+              backgroundColor: "rgb(0, 128, 255)",
+              textTransform: "capitalize",
+              "&:hover": { backgroundColor: "lightGray", color: "gray" },
+            }}
+          >
+            Geri Dön
+          </Button>
+        </Box>
         <Box
           sx={{
             display: "flex",
