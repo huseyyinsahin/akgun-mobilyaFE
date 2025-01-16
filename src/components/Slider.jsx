@@ -29,7 +29,7 @@ const Slider = () => {
       setImagesCount((prevCount) => (prevCount + 1) % slider.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, [imagesCount]);
+  }, [slider, imagesCount]);
 
   //tıklandığında slider değişsin diye
   const handleCount = (num) => {
