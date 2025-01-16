@@ -131,7 +131,7 @@ const PhotoGallery = () => {
           gap: "1rem",
         }}
       >
-        {photoGallery.map((item, index) => (
+        {photoGallery?.map((item, index) => (
           <Box
             key={item._id}
             sx={{
@@ -143,7 +143,7 @@ const PhotoGallery = () => {
               onClick={() => handlePhoto(index)}
               width="150px"
               height="100px"
-              src={item.image}
+              src={item?.image}
               alt="Mobilya"
             />
           </Box>

@@ -10,7 +10,7 @@ const usePhotoGalleryRequest = () => {
     dispatch(start());
     try {
       const { data } = await axiosPublic.get(
-        `photogallery?page=${pageCount}&limit=1` //artıcak limit
+        `photogallery?page=${pageCount}&limit=20` 
       );
       dispatch(photoGallery(data));
       console.log(data);
