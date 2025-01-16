@@ -1,6 +1,7 @@
 import {
   Alert,
   Box,
+  CircularProgress,
   Container,
   Dialog,
   Divider,
@@ -23,7 +24,7 @@ const PhotoGallery = () => {
     getPhotoGallery();
   }, []);
 
-  const { photoGallery, photoGalleryPages, error } = useSelector(
+  const { photoGallery, photoGalleryPages, error, loading } = useSelector(
     (state) => state.data
   );
 
@@ -65,62 +66,80 @@ const PhotoGallery = () => {
 
   return (
     <>
-      {error && (
+      {!loading && error && (
         <Alert severity="error" sx={{ width: "80%", margin: "auto" }}>
           Bu bilgiler yüklenemedi, şuanda bir hata var sayfayı yenileyiniz!
         </Alert>
       )}
-      <Box
-        sx={{
-          position: "relative",
-          height: { xs: "20rem", md: "30rem" },
-          width: "100%",
-          margin: "auto",
-          overflow: "hidden",
-          marginTop: "0.5rem",
-        }}
-      >
-        <Box>
+      {loading ? (
+        <Container
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "80vh",
+          }}
+        >
+          <CircularProgress color="inherit" size={150} />
+        </Container>
+      ) : (
+        !error && (
           <Box
-            component="img"
-            src={`${process.env.REACT_APP_BASE_URL}/${photoGallery[imagesCount]?.image}`}
-            onClick={() => handleImageClick(photoGallery[imagesCount].image)}
-            alt="Mobilya"
             sx={{
-              width: "100%",
+              position: "relative",
               height: { xs: "20rem", md: "30rem" },
-              objectFit: "contain",
-              backgroundSize: "cover",
-              cursor: "pointer",
+              width: "100%",
+              margin: "auto",
+              overflow: "hidden",
+              marginTop: "0.5rem",
             }}
-          />
-        </Box>
-        <ChevronLeftIcon
-          onClick={() => handleCount(-1)}
-          sx={{
-            fontSize: "3rem",
-            position: "absolute",
-            top: "50%",
-            left: 10,
-            transform: "translateY(-50%)",
-            color: "black",
-            cursor: "pointer",
-          }}
-        />
+          >
+            <Box>
+              <Box
+                component="img"
+                src={`${process.env.REACT_APP_BASE_URL}/${photoGallery[imagesCount]?.image}`}
+                onClick={() =>
+                  handleImageClick(photoGallery[imagesCount].image)
+                }
+                alt="Mobilya"
+                sx={{
+                  width: "100%",
+                  height: { xs: "20rem", md: "30rem" },
+                  objectFit: "contain",
+                  backgroundSize: "cover",
+                  cursor: "pointer",
+                }}
+              />
+            </Box>
+            <ChevronLeftIcon
+              onClick={() => handleCount(-1)}
+              sx={{
+                fontSize: "3rem",
+                position: "absolute",
+                top: "50%",
+                left: 10,
+                transform: "translateY(-50%)",
+                color: "black",
+                cursor: "pointer",
+              }}
+            />
 
-        <ChevronRightIcon
-          onClick={() => handleCount(1)}
-          sx={{
-            fontSize: "3rem",
-            position: "absolute",
-            top: "50%",
-            right: 10,
-            transform: "translateY(-50%)",
-            color: "",
-            cursor: "pointer",
-          }}
-        />
-      </Box>
+            <ChevronRightIcon
+              onClick={() => handleCount(1)}
+              sx={{
+                fontSize: "3rem",
+                position: "absolute",
+                top: "50%",
+                right: 10,
+                transform: "translateY(-50%)",
+                color: "",
+                cursor: "pointer",
+              }}
+            />
+          </Box>
+        )
+      )}
+
       <Divider sx={{ marginTop: "1rem" }} />
       <Container
         sx={{
@@ -143,7 +162,7 @@ const PhotoGallery = () => {
               onClick={() => handlePhoto(index)}
               width="150px"
               height="100px"
-              src={item?.image}
+              src={`${process.env.REACT_APP_BASE_URL}/${item?.image}`}
               alt="Mobilya"
             />
           </Box>
