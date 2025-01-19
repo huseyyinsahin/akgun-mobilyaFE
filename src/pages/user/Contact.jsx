@@ -4,7 +4,7 @@ import { Email, Phone, LocationOn } from "@mui/icons-material";
 
 const Contact = () => {
   return (
-    <Container>
+    <Container sx={{minHeight:"80vh"}}>
       <Typography
         variant="h2"
         component="h2"
