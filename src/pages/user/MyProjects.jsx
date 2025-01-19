@@ -57,18 +57,22 @@ const MyProjects = () => {
       ) : (
         !error && (
           <Container>
-            <Grid container spacing={2} sx={{ marginTop: "2rem" }}>
+            <Grid
+              container
+              spacing={2}
+              sx={{ marginTop: "2rem", minHeight: "70rem" }}
+            >
               {projects?.map((proje) => (
                 <Grid
                   key={proje._id}
                   item
                   xs={12}
                   md={6}
-                  sx={{ cursor: "pointer", margin: "0.6rem 0rem" }}
-                  onClick={() => navigate(`/myprojects/${proje._id}`)}
+                  sx={{ margin: "0.6rem 0rem" }}
                 >
                   <Box
                     component="img"
+                    onClick={() => navigate(`/myprojects/${proje._id}`)}
                     src={`${process.env.REACT_APP_BASE_URL}/${proje.image[0]}`}
                     alt={proje.title}
                     sx={{
@@ -76,6 +80,7 @@ const MyProjects = () => {
                       height: { xs: "13rem", md: "17rem" },
                       objectFit: "cover",
                       backgroundSize: "cover",
+                      cursor: "pointer",
                     }}
                   />
                   <Box

@@ -62,7 +62,7 @@ const MyProjectsDetail = () => {
         </Container>
       ) : (
         !error && (
-          <Container sx={{ mt: 4 }}>
+          <Container sx={{ mt: 4, minHeight: { xl: "80vh" } }}>
             <Typography
               variant="h4"
               component="h2"
