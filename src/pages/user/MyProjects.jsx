@@ -60,7 +60,7 @@ const MyProjects = () => {
             <Grid
               container
               spacing={2}
-              sx={{ marginTop: "2rem", minHeight: "70rem" }}
+              sx={{ marginTop: "2rem", minHeight: {xl:"70rem"} }}
             >
               {projects?.map((proje) => (
                 <Grid
