@@ -49,6 +49,11 @@ const PhotoGallery = () => {
     setImagesCount(num);
   };
 
+  // sayfa değişince, sayfanın ilk fotografına geçmek için
+  useEffect(() => {
+    setImagesCount(0);
+  }, [page]);
+
   // görselleri tam ekran görmek için
   const [open, setOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
