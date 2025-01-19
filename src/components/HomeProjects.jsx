@@ -91,7 +91,9 @@ const HomeProjects = () => {
                     }}
                     p={2}
                   >
-                    {proje.title}
+                    {proje.title.length > 40
+                      ? ` ${proje.title.slice(0, 40)}...`
+                      : proje.title}
                   </Box>
                 </Grid>
               ))}

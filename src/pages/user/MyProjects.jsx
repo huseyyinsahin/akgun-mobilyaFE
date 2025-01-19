@@ -60,7 +60,7 @@ const MyProjects = () => {
             <Grid
               container
               spacing={2}
-              sx={{ marginTop: "2rem", minHeight: {xl:"70rem"} }}
+              sx={{ marginTop: "2rem", minHeight: { xl: "70rem" } }}
             >
               {projects?.map((proje) => (
                 <Grid
@@ -92,7 +92,9 @@ const MyProjects = () => {
                     }}
                     p={2}
                   >
-                    {proje.title}
+                    {proje.title.length > 40
+                      ? ` ${proje.title.slice(0, 40)}...`
+                      : proje.title}
                   </Box>
                 </Grid>
               ))}
