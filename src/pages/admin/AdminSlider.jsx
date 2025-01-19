@@ -5,7 +5,7 @@ import {
   Container,
   Typography,
 } from "@mui/material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useSliderRequest from "../../hooks/useSliderRequest";
 import { useSelector } from "react-redux";
 import Card from "@mui/material/Card";
@@ -13,8 +13,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
-
-import photo from "../../assets/images/photo2.jpg";
+import SliderForm from "../../components/adminComponents/SliderForm";
 
 const AdminSlider = () => {
   const { getSlider } = useSliderRequest();
@@ -24,6 +23,13 @@ const AdminSlider = () => {
   }, []);
 
   const { slider, loading, error } = useSelector((state) => state.data);
+
+  //formu açma kapama
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -77,6 +83,7 @@ const AdminSlider = () => {
                 Anasayfa Slider
               </Typography>
               <Button
+                onClick={() => setOpen(true)}
                 variant="contained"
                 sx={{ height: "2rem", textTransform: "none" }}
               >
@@ -101,8 +108,7 @@ const AdminSlider = () => {
                     width: { xs: "100%", md: "40%" },
                     height: "15rem",
                   }}
-                  image={photo}
-                  // image={`${process.env.REACT_APP_BASE_URL}/${slider?.image}`}
+                  image={`${process.env.REACT_APP_BASE_URL}/${item?.image}`}
                   alt={item.title}
                 />
                 <Box
@@ -118,7 +124,7 @@ const AdminSlider = () => {
                     <Typography
                       sx={{
                         color: "text.primary",
-                        fontSize:"1.1rem"
+                        fontSize: "1.1rem",
                       }}
                     >
                       {item.title}
@@ -162,6 +168,7 @@ const AdminSlider = () => {
                 </Box>
               </Card>
             ))}
+            <SliderForm open={open} handleClose={handleClose} />
           </Box>
         )
       )}

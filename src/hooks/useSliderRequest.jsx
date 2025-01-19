@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
 import { fail, slider, start } from "../features/dataSlice";
+import { toastWarnNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useSliderRequest = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,20 @@ const useSliderRequest = () => {
     }
   };
 
-  return { getSlider };
+  const postSlider = async (sliderData) => {
+    try {
+      await axiosToken.post("slider", sliderData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      toastSuccessNotify("Slider Eklendi");
+    } catch (error) {
+      toastWarnNotify("Slider ekleme başarısız!");
+    }
+  };
+
+  return { getSlider, postSlider };
 };
 
 export default useSliderRequest;
