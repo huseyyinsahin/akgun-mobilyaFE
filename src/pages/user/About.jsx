@@ -40,48 +40,60 @@ const About = () => {
         </Container>
       ) : (
         !error && (
-          <Container
-            style={{
-              padding: "2rem",
-              margin: "auto",
-              boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
-              marginTop: "2rem",
-              borderRadius: "15px",
+          <Box
+            sx={{
+              minHeight: "70vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: "0.4rem",
             }}
           >
-            <Typography
-              variant="h2"
-              component="h2"
-              style={{
-                fontWeight: "bold",
-                textAlign: "center",
-                marginBottom: "1rem",
-                color: "#2C2C2C",
+            <Container
+              sx={{
+                padding: "2rem",
+                boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
+                borderRadius: "15px",
+                marginTop:"2rem"
               }}
             >
-              Hakkımızda
-            </Typography>
-            <Divider
-              style={{ marginBottom: "1.5rem", backgroundColor: "#2a3eb1" }}
-            />
-            <Box style={{ lineHeight: 1.8, textAlign: "justify" }}>
-              {about.map((item) => (
-                <Box key={item._id}>
-                  <Typography
-                    variant="h6"
-                    style={{
-                      fontSize: "1.1rem",
-                      color: "#555",
-                      letterSpacing: "0.5px",
-                    }}
-                  >
-                    {item.text}
-                  </Typography>
-                  <br />
-                </Box>
-              ))}
-            </Box>
-          </Container>
+              <Typography
+                variant="h2"
+                component="h2"
+                sx={{
+                  fontWeight: "bold",
+                  textAlign: "center",
+                  marginBottom: "1rem",
+                  color: "#2C2C2C",
+                }}
+              >
+                Hakkımızda
+              </Typography>
+              <Divider
+                sx={{
+                  marginBottom: "1.5rem",
+                  backgroundColor: "#2a3eb1",
+                }}
+              />
+              <Box sx={{ lineHeight: 1.8, textAlign: "justify" }}>
+                {about.map((item) => (
+                  <Box key={item._id}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontSize: "1.1rem",
+                        color: "#555",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {item.text}
+                    </Typography>
+                    <br />
+                  </Box>
+                ))}
+              </Box>
+            </Container>
+          </Box>
         )
       )}
     </>
