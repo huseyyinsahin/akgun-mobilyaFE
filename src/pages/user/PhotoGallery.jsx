@@ -85,8 +85,11 @@ const PhotoGallery = () => {
         !error && (
           <Box
             sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
               position: "relative",
-              height: { xs: "20rem", md: "30rem" },
+              height: { xs: "20rem", md: "30rem", xl: "50rem" },
               width: "100%",
               margin: "auto",
               overflow: "hidden",
@@ -103,7 +106,7 @@ const PhotoGallery = () => {
                 alt="Mobilya"
                 sx={{
                   width: "100%",
-                  height: { xs: "20rem", md: "30rem" },
+                  height: { xs: "20rem", md: "30rem", xl: "40rem" },
                   objectFit: "contain",
                   backgroundSize: "cover",
                   cursor: "pointer",
@@ -144,7 +147,8 @@ const PhotoGallery = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: { xs: "center", md: "flex-start" },
+          justifyContent: "center",
+          alignItems: "center",
           marginTop: "1rem",
           gap: "1rem",
         }}
@@ -167,8 +171,34 @@ const PhotoGallery = () => {
           </Box>
         ))}
       </Container>
+      <Divider sx={{ marginTop: "1rem" }} />
       <Pagination
-        sx={{ display: "flex", justifyContent: "center", marginTop: "1.5rem" }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "1.5rem",
+          "& .MuiPaginationItem-root": {
+            backgroundColor: "lightgray",
+            border: "1px solid #444",
+            borderRadius: "8px",
+            color: "#444",
+            fontWeight: "bold",
+            transition: "all 0.3s ease",
+            "&:hover": {
+              backgroundColor: "#3A3A3A",
+              color: "#FFF",
+              borderColor: "#555",
+            },
+            "&.Mui-selected": {
+              backgroundColor: "#444",
+              color: "#FFF",
+              borderColor: "#666",
+            },
+          },
+          "& .MuiPaginationItem-ellipsis": {
+            color: "#777",
+          },
+        }}
         onChange={handlePage}
         page={page}
         count={photoGalleryPages.total}
