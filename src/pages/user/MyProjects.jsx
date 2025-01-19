@@ -97,6 +97,27 @@ const MyProjects = () => {
                 display: "flex",
                 justifyContent: "center",
                 marginTop: "1.5rem",
+                "& .MuiPaginationItem-root": {
+                  backgroundColor: "lightgray",
+                  border: "1px solid #444",
+                  borderRadius: "8px",
+                  color: "#444",
+                  fontWeight: "bold",
+                  transition: "all 0.3s ease",
+                  "&:hover": {
+                    backgroundColor: "#3A3A3A",
+                    color: "#FFF",
+                    borderColor: "#555",
+                  },
+                  "&.Mui-selected": {
+                    backgroundColor: "#444",
+                    color: "#FFF",
+                    borderColor: "#666",
+                  },
+                },
+                "& .MuiPaginationItem-ellipsis": {
+                  color: "#777",
+                },
               }}
               onChange={handlePage}
               page={page}
