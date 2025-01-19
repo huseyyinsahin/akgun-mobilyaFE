@@ -42,7 +42,7 @@ const About = () => {
         !error && (
           <Box
             sx={{
-              minHeight: "70vh",
+              minHeight: { xl: "80vh" },
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -54,7 +54,7 @@ const About = () => {
                 padding: "2rem",
                 boxShadow: "0 8px 30px rgba(0, 0, 0, 0.2)",
                 borderRadius: "15px",
-                marginTop:"2rem"
+                marginTop: "2rem",
               }}
             >
               <Typography
