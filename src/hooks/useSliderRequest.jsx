@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
 import { fail, slider, start } from "../features/dataSlice";
-import { toastWarnNotify, toastSuccessNotify } from "../helper/ToastNotify";
+import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useSliderRequest = () => {
   const dispatch = useDispatch();
@@ -25,8 +25,9 @@ const useSliderRequest = () => {
         },
       });
       toastSuccessNotify("Slider Eklendi");
+      getSlider();
     } catch (error) {
-      toastWarnNotify("Slider ekleme başarısız!");
+      toastErrorNotify("Slider ekleme başarısız!");
     }
   };
 
