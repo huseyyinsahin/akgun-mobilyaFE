@@ -20,33 +20,33 @@ const blogSlice = createSlice({
       state.loading = true;
       state.error = false;
     },
-    slider: (state, { payload }) => {
+    setSlider: (state, { payload }) => {
       state.slider = payload.data;
       state.loading = false;
     },
-    homeCard: (state, { payload }) => {
+    setHomeCard: (state, { payload }) => {
       state.homeCard = payload.data;
       state.loading = false;
     },
-    reference: (state, { payload }) => {
+    setReference: (state, { payload }) => {
       state.reference = payload.data;
       state.loading = false;
     },
-    about: (state, { payload }) => {
+    setAbout: (state, { payload }) => {
       state.about = payload.data;
       state.loading = false;
     },
-    photoGallery: (state, { payload }) => {
+    setPhotoGallery: (state, { payload }) => {
       state.photoGallery = payload.data;
       state.photoGalleryPages = payload.details.pages;
       state.loading = false;
     },
-    projects: (state, { payload }) => {
+    setProjects: (state, { payload }) => {
       state.projects = payload.data;
       state.projectsPages = payload.details.pages;
       state.loading = false;
     },
-    projectDetails: (state, { payload }) => {
+    setProjectDetails: (state, { payload }) => {
       state.projectDetails = payload.data;
       state.loading = false;
     },
@@ -59,13 +59,13 @@ const blogSlice = createSlice({
 
 export const {
   start,
-  slider,
-  homeCard,
-  reference,
-  about,
-  photoGallery,
-  projects,
+  setSlider,
+  setHomeCard,
+  setReference,
+  setAbout,
+  setPhotoGallery,
+  setProjects,
+  setProjectDetails,
   fail,
-  projectDetails,
 } = blogSlice.actions;
 export default blogSlice.reducer;

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
-import { fail, about, start } from "../features/dataSlice";
+import { fail, setAbout, start } from "../features/dataSlice";
 
 const useAboutRequest = () => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const useAboutRequest = () => {
     dispatch(start());
     try {
       const { data } = await axiosPublic.get(`about`);
-      dispatch(about(data));
+      dispatch(setAbout(data));
     } catch (error) {
       dispatch(fail());
     }

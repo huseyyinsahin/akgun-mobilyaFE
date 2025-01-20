@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
-import { fail, slider, start } from "../features/dataSlice";
+import { fail, setSlider, start } from "../features/dataSlice";
 import { toastErrorNotify, toastSuccessNotify } from "../helper/ToastNotify";
 
 const useSliderRequest = () => {
@@ -11,7 +11,7 @@ const useSliderRequest = () => {
     dispatch(start());
     try {
       const { data } = await axiosPublic.get(`slider`);
-      dispatch(slider(data));
+      dispatch(setSlider(data));
     } catch (error) {
       dispatch(fail());
     }
