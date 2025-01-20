@@ -3,6 +3,10 @@ import {
   Box,
   CircularProgress,
   Container,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
@@ -16,7 +20,7 @@ import Button from "@mui/material/Button";
 import SliderForm from "../../components/adminComponents/SliderForm";
 
 const AdminSlider = () => {
-  const { getSlider } = useSliderRequest();
+  const { getSlider, deleteSlider } = useSliderRequest();
 
   useEffect(() => {
     getSlider();
@@ -29,6 +33,17 @@ const AdminSlider = () => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  //silinecek slider'ın id si
+  const [sliderDeleteId, setSliderDeleteId] = useState("");
+
+  // delete dialog
+  const [openDialog, setOpenDialog] = useState(false);
+
+  const handleDialogClose = () => {
+    setOpenDialog(false);
+    setSliderDeleteId("");
   };
 
   return (
@@ -152,6 +167,10 @@ const AdminSlider = () => {
                     <Button
                       variant="outlined"
                       size="small"
+                      onClick={() => {
+                        setOpenDialog(true);
+                        setSliderDeleteId(item._id);
+                      }}
                       sx={{
                         textTransform: "none",
                         borderColor: "error.main",
@@ -169,6 +188,58 @@ const AdminSlider = () => {
               </Card>
             ))}
             <SliderForm open={open} handleClose={handleClose} />
+
+            <Dialog open={openDialog} onClose={handleDialogClose}>
+              <DialogTitle
+                component="h3"
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: "1.7rem",
+                  textAlign: "center",
+                }}
+              >
+                Slider Silme
+              </DialogTitle>
+              <DialogContent
+                sx={{
+                  textAlign: "center",
+                  fontSize: "1.1rem",
+                  color: "text.secondary",
+                }}
+              >
+                Bu slider'ı silmek istediğinize emin misiniz?
+              </DialogContent>
+              <DialogActions sx={{ justifyContent: "center" }}>
+                <Button
+                  variant="outlined"
+                  color="error"
+                  onClick={handleDialogClose}
+                  sx={{
+                    px: 3,
+                    borderRadius: "8px",
+                    textTransform: "none",
+                  }}
+                >
+                  İptal
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    deleteSlider(sliderDeleteId);
+                    handleDialogClose();
+                  }}
+                  sx={{
+                    px: 3,
+                    borderRadius: "8px",
+                    textTransform: "none",
+                    ml: 2,
+                  }}
+                >
+                  Onayla
+                </Button>
+              </DialogActions>
+            </Dialog>
           </Box>
         )
       )}

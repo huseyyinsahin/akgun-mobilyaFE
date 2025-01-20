@@ -24,14 +24,26 @@ const useSliderRequest = () => {
           "Content-Type": "multipart/form-data",
         },
       });
-      toastSuccessNotify("Slider Eklendi");
+      toastSuccessNotify("Slider eklendi");
       getSlider();
     } catch (error) {
       toastErrorNotify("Slider ekleme başarısız!");
     }
   };
 
-  return { getSlider, postSlider };
+  
+
+  const deleteSlider = async (id) => {
+    try {
+      await axiosToken.delete(`slider/${id}`);
+      toastSuccessNotify("Slider silindi");
+      getSlider();
+    } catch (error) {
+      toastErrorNotify("Slider silinemedi!");
+    }
+  };
+
+  return { getSlider, postSlider, deleteSlider };
 };
 
 export default useSliderRequest;
