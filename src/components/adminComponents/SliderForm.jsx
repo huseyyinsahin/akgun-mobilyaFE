@@ -7,7 +7,7 @@ import {
   Button,
   Stack,
 } from "@mui/material";
-import * as Yup from "yup";
+import { object, string } from "yup";
 import { Form, Formik } from "formik";
 import useSliderRequest from "../../hooks/useSliderRequest";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -16,8 +16,8 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
   const { postSlider, updateSlider } = useSliderRequest();
   const [previewImage, setPreviewImage] = useState(null); // kullanıcının fotografı görebilmesi için
 
-  const sliderSchema = Yup.object({
-    title: Yup.string()
+  const sliderSchema = object({
+    title: string()
       .required("Başlık gerekli")
       .max(60, "Başlık 60 karakterden uzun olamaz"),
   });
