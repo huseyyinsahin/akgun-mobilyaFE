@@ -10,31 +10,20 @@ import {
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import useSliderRequest from "../../hooks/useSliderRequest";
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 
-const SliderForm = ({ open, handleClose }) => {
-  const { postSlider } = useSliderRequest();
+const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
+  const { postSlider, updateSlider } = useSliderRequest();
+  const [previewImage, setPreviewImage] = useState(null); // kullanıcının fotografı görebilmesi için
 
   const sliderSchema = Yup.object({
     title: Yup.string()
       .required("Başlık gerekli")
-      .max(50, "Başlık 50 karakterden uzun olamaz"),
-    images: Yup.mixed()
-      .required("Bir resim seçmelisiniz")
-      .test(
-        "fileFormat",
-        "Sadece PNG, JPEG veya JPG formatında resim yükleyebilirsiniz",
-        (value) =>
-          value && ["image/jpeg", "image/png", "image/jpg"].includes(value.type)
-      ),
+      .max(60, "Başlık 60 karakterden uzun olamaz"),
   });
 
   return (
-    <Modal
-      open={open}
-      onClose={handleClose}
-      aria-labelledby="slider-modal-title"
-      aria-describedby="slider-modal-description"
-    >
+    <Modal open={open}>
       <Box
         sx={{
           position: "absolute",
@@ -48,22 +37,32 @@ const SliderForm = ({ open, handleClose }) => {
           p: 4,
         }}
       >
-        <Typography
-          id="slider-modal-title"
-          variant="h6"
-          sx={{ mb: 2, fontWeight: "bold" }}
-        >
+        <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
           Slider Ekle
         </Typography>
         <Formik
-          initialValues={{
-            title: "",
-            images: null,
-          }}
+          initialValues={
+            updateData
+              ? {
+                  title: updateData.title,
+                  image: updateData.image, // görsel silinmediyse görselin path'i buraya gider (görsel eğer silinirse, bu property null olarak ayarlanır)
+                  images: null, // görseller buraya gider
+                }
+              : {
+                  title: "",
+                  images: null,
+                }
+          }
           validationSchema={sliderSchema}
           onSubmit={(values, actions) => {
-            postSlider(values);
+            if (updateData) {
+              updateSlider(values, updateData._id);
+            } else {
+              postSlider(values);
+            }
+            setUpdateData(false);
             actions.resetForm();
+            setPreviewImage(null);
             handleClose();
           }}
         >
@@ -75,9 +74,6 @@ const SliderForm = ({ open, handleClose }) => {
             touched,
             errors,
           }) => {
-            const previewImage = values.images
-              ? URL.createObjectURL(values.images)
-              : null;
             return (
               <Form>
                 <Stack spacing={2}>
@@ -93,25 +89,45 @@ const SliderForm = ({ open, handleClose }) => {
                     fullWidth
                   />
 
-                  <Button
-                    variant="contained"
-                    component="label"
-                  >
-                    Resim Yükle
-                    <input
-                      type="file"
-                      accept="image/png, image/jpeg, image/jpg"
-                      hidden
-                      onChange={(e) => {
-                        setFieldValue("images", e.currentTarget.files[0]);
+                  {values.image && (
+                    <Typography
+                      sx={{
+                        fontSize: "0.5rem",
+                        color: "gray",
+                        textAlign: "center",
                       }}
-                    />
-                  </Button>
+                    >
+                      Eski görseli silmeden yeni görsel yükleyemezsiniz
+                      <br/>
+                      Görsel yüklemek zorunludur
+                    </Typography>
+                  )}
 
-                  {values.images && previewImage && (
-                    <Box sx={{ mt: 2 }}>
+                  {/* görsel varsa eğer görsel yükleme butonu gözükmesin */}
+                  {!values.images && !values.image && (
+                    <Button variant="contained" component="label">
+                      Görsel Yükle
+                      <input
+                        type="file"
+                        accept="image/png, image/jpeg, image/jpg"
+                        hidden
+                        onChange={(e) => {
+                          const file = e.currentTarget.files[0];
+                          setFieldValue("images", file);
+                          setPreviewImage(URL.createObjectURL(file));
+                        }}
+                      />
+                    </Button>
+                  )}
+
+                  {(previewImage || values.images || values.image) && (
+                    <Box sx={{ mt: 2, position: "relative" }}>
                       <img
-                        src={previewImage}
+                        src={
+                          updateData && values.image
+                            ? `${process.env.REACT_APP_BASE_URL}${values.image}`
+                            : previewImage
+                        }
                         alt="mobilya"
                         style={{
                           width: "100%",
@@ -119,20 +135,34 @@ const SliderForm = ({ open, handleClose }) => {
                           borderRadius: "8px",
                         }}
                       />
+                      <DeleteOutlinedIcon
+                        onClick={() => {
+                          setFieldValue("images", null);
+                          setFieldValue("image", null);
+                          setPreviewImage(null);
+                        }}
+                        sx={{
+                          position: "absolute",
+                          top: "0px",
+                          right: "0px",
+                          fontSize: "2rem",
+                          color: "red",
+                          cursor: "pointer",
+                          "&:hover": { transform: "scale(1.15)" },
+                        }}
+                      />
                     </Box>
-                  )}
-
-                  {touched.images && errors.images && (
-                    <Typography variant="body2" color="error">
-                      {errors.images}
-                    </Typography>
                   )}
 
                   <Stack direction="row" spacing={2} justifyContent="flex-end">
                     <Button
                       variant="outlined"
                       color="error"
-                      onClick={handleClose}
+                      onClick={() => {
+                        setUpdateData(false);
+                        setPreviewImage(null);
+                        handleClose();
+                      }}
                       sx={{
                         textTransform: "none",
                       }}

@@ -31,7 +31,17 @@ const useSliderRequest = () => {
     }
   };
 
-  
+  const updateSlider = async (updateData, id) => {
+    try {
+      await axiosToken.put(`slider/${id}`, updateData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      toastSuccessNotify("Slider güncellendi");
+      getSlider();
+    } catch (error) {
+      toastErrorNotify("Slider güncelleme başarısız!");
+    }
+  };
 
   const deleteSlider = async (id) => {
     try {
@@ -43,7 +53,7 @@ const useSliderRequest = () => {
     }
   };
 
-  return { getSlider, postSlider, deleteSlider };
+  return { getSlider, postSlider, deleteSlider, updateSlider };
 };
 
 export default useSliderRequest;

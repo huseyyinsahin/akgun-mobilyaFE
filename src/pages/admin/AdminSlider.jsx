@@ -35,6 +35,9 @@ const AdminSlider = () => {
     setOpen(false);
   };
 
+  //güncelleme işlemi yapılırken form'a verilerin gitmesi için
+  const [updateData, setUpdateData] = useState(false);
+
   //silinecek slider'ın id si
   const [sliderDeleteId, setSliderDeleteId] = useState("");
 
@@ -154,6 +157,10 @@ const AdminSlider = () => {
                     }}
                   >
                     <Button
+                      onClick={() => {
+                        setOpen(true);
+                        setUpdateData(item);
+                      }}
                       variant="contained"
                       size="small"
                       sx={{
@@ -187,7 +194,12 @@ const AdminSlider = () => {
                 </Box>
               </Card>
             ))}
-            <SliderForm open={open} handleClose={handleClose} />
+            <SliderForm
+              open={open}
+              handleClose={handleClose}
+              updateData={updateData}
+              setUpdateData={setUpdateData}
+            />
 
             <Dialog open={openDialog} onClose={handleDialogClose}>
               <DialogTitle
