@@ -92,32 +92,42 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                   {values.image && (
                     <Typography
                       sx={{
-                        fontSize: "0.5rem",
+                        fontSize: "0.6rem",
                         color: "gray",
                         textAlign: "center",
                       }}
                     >
-                      Eski görseli silmeden yeni görsel yükleyemezsiniz
-                      <br />
-                      Görsel yüklemek zorunludur
+                      Aşağıdaki görseli sildikten sonra yerine yeni görsel
+                      yükleyebilirsiniz
                     </Typography>
                   )}
 
                   {/* görsel varsa eğer görsel yükleme butonu gözükmesin */}
                   {!values.images && !values.image && (
-                    <Button variant="contained" component="label">
-                      Görsel Yükle
-                      <input
-                        type="file"
-                        accept="image/png, image/jpeg, image/jpg"
-                        hidden
-                        onChange={(e) => {
-                          const file = e.currentTarget.files[0];
-                          setFieldValue("images", file);
-                          setPreviewImage(URL.createObjectURL(file));
+                    <>
+                      <Button variant="contained" component="label">
+                        Görsel Yükle
+                        <input
+                          type="file"
+                          accept="image/png, image/jpeg, image/jpg"
+                          hidden
+                          onChange={(e) => {
+                            const file = e.currentTarget.files[0];
+                            setFieldValue("images", file);
+                            setPreviewImage(URL.createObjectURL(file));
+                          }}
+                        />
+                      </Button>
+                      <Typography
+                        sx={{
+                          fontSize: "0.6rem",
+                          color: "gray",
+                          textAlign: "center",
                         }}
-                      />
-                    </Button>
+                      >
+                        Görsel yüklenmelidir!
+                      </Typography>
+                    </>
                   )}
 
                   {(previewImage || values.images || values.image) && (
@@ -154,7 +164,11 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                     </Box>
                   )}
 
-                  <Stack direction="row" spacing={2} justifyContent="flex-end">
+                  <Stack
+                    direction="row"
+                    spacing={2}
+                    sx={{ justifyContent: { xs: "center", md: "flex-end" } }}
+                  >
                     <Button
                       variant="outlined"
                       color="error"
