@@ -30,7 +30,7 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: "25rem",
+          width: { xs: "15rem", md: "25rem" },
           bgcolor: "background.paper",
           borderRadius: "8px",
           boxShadow: 24,
@@ -98,7 +98,7 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                       }}
                     >
                       Eski görseli silmeden yeni görsel yükleyemezsiniz
-                      <br/>
+                      <br />
                       Görsel yüklemek zorunludur
                     </Typography>
                   )}
