@@ -113,6 +113,7 @@ const AdminReference = () => {
                 alignItems: "center",
                 flexWrap: "wrap",
                 gap: "1rem",
+                maxWidth: "80rem",
               }}
             >
               {reference?.map((item) => (
