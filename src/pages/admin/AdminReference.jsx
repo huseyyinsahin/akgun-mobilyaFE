@@ -96,7 +96,7 @@ const AdminReference = () => {
                   fontSize: { xs: "1.5rem", md: "3rem" },
                 }}
               >
-                Anasayfa Bilgi Kartları
+                Anasayfa Referanslar
               </Typography>
               <Button
                 onClick={() => setOpen(true)}

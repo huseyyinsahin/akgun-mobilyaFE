@@ -14,7 +14,7 @@ import useHomeCardRequest from "../../hooks/useHomeCardRequest";
 const HomeCardForm = ({ open, handleClose, updateData, setUpdateData }) => {
   const { postHomeCard, updateHomeCard } = useHomeCardRequest();
 
-  const HomeCardSchema = object({
+  const homeCardSchema = object({
     title: string()
       .required("Başlık gerekli")
       .max(18, "Başlık 18 karakterden uzun olamaz"),
@@ -54,7 +54,7 @@ const HomeCardForm = ({ open, handleClose, updateData, setUpdateData }) => {
                   text: "",
                 }
           }
-          validationSchema={HomeCardSchema}
+          validationSchema={homeCardSchema}
           onSubmit={(values, actions) => {
             if (updateData) {
               updateHomeCard(values, updateData._id);
