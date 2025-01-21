@@ -127,8 +127,7 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                       >
                         ● Görsel yüklenmelidir!
                         <br />
-                        ● Güzel bir görüntü açısından, yatay görseller
-                        yüklemeniz tavsiye edilir.
+                        ● Yatay görseller yüklemeniz tavsiye edilir.
                       </Typography>
                     </>
                   )}
