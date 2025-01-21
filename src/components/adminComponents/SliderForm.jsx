@@ -38,7 +38,7 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
         }}
       >
         <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-         Anasayfa Slider
+          Anasayfa Slider
         </Typography>
         <Formik
           initialValues={
@@ -125,7 +125,10 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                           textAlign: "center",
                         }}
                       >
-                        Görsel yüklenmelidir!
+                        ● Görsel yüklenmelidir!
+                        <br />
+                        ● Güzel bir görüntü açısından, yatay görseller
+                        yüklemeniz tavsiye edilir.
                       </Typography>
                     </>
                   )}
