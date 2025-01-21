@@ -128,6 +128,9 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                         ● Görsel yüklenmelidir!
                         <br />
                         ● Yatay görseller yüklemeniz tavsiye edilir.
+                        <br />
+                        ● Sadece JPEG, JPG ve PNG formatında yükleme
+                        yapılabilir.
                       </Typography>
                     </>
                   )}
