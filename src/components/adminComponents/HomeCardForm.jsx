@@ -39,7 +39,7 @@ const HomeCardForm = ({ open, handleClose, updateData, setUpdateData }) => {
         }}
       >
         <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-          HomeCard Ekle
+          Bilgi Kartı
         </Typography>
         <Formik
           initialValues={

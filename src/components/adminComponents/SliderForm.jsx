@@ -38,7 +38,7 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
         }}
       >
         <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-          Slider Ekle
+         Anasayfa Slider
         </Typography>
         <Formik
           initialValues={

@@ -119,7 +119,7 @@ const AdminReference = () => {
                 <Card
                   key={item._id}
                   sx={{
-                    width: "25rem",
+                    width: { xs: "20rem", md: "25rem" },
                     maxWidth: "100%",
                     height: "10rem",
                     display: "flex",
