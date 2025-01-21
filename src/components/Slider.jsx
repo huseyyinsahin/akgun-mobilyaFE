@@ -39,10 +39,6 @@ const Slider = () => {
     setImagesCount((prevCount) => (prevCount + num) % slider.length);
   };
 
-  console.log(
-    `${process.env.REACT_APP_BASE_URL}/${slider[imagesCount]?.image}`
-  );
-
   return (
     <>
       {!loading && error && (

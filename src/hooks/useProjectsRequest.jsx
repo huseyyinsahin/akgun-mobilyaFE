@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux";
 import useAxios from "./useAxios";
-import { fail, setProjects, start, setProjectDetails } from "../features/dataSlice";
+import {
+  fail,
+  setProjects,
+  start,
+  setProjectDetails,
+} from "../features/dataSlice";
 
 const useProjectsRequest = () => {
   const dispatch = useDispatch();
@@ -10,10 +15,9 @@ const useProjectsRequest = () => {
     dispatch(start());
     try {
       const { data } = await axiosPublic.get(
-        `projects?page=${pageCount}&limit=6` 
+        `projects?page=${pageCount}&limit=6`
       );
       dispatch(setProjects(data));
-      console.log(data);
     } catch (error) {
       dispatch(fail());
     }
@@ -24,7 +28,6 @@ const useProjectsRequest = () => {
     try {
       const { data } = await axiosPublic.get(`projects/${id}`);
       dispatch(setProjectDetails(data));
-      console.log(data);
     } catch (error) {
       dispatch(fail());
     }
