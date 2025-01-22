@@ -96,7 +96,7 @@ const AdminAbout = () => {
                   fontSize: { xs: "1.5rem", md: "3rem" },
                 }}
               >
-                Anasayfa Hakkımızda
+                Hakkımızda
               </Typography>
               <Button
                 onClick={() => setOpen(true)}

@@ -107,7 +107,7 @@ const AdminPhotoGallery = () => {
                   fontSize: { xs: "2rem", md: "3rem" },
                 }}
               >
-                Anasayfa Galeri
+                Galeri
               </Typography>
               <Button
                 onClick={() => setOpen(true)}
