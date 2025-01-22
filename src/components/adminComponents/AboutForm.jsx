@@ -33,7 +33,7 @@ const AboutForm = ({ open, handleClose, updateData, setUpdateData }) => {
         }}
       >
         <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-          Anasayfa Hakkımızda
+          Hakkımızda
         </Typography>
         <Formik
           initialValues={

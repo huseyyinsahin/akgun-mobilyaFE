@@ -30,7 +30,7 @@ const PhotoGalleryForm = ({
         }}
       >
         <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-          Anasayfa Galeri
+          Galeri
         </Typography>
         <Formik
           initialValues={
