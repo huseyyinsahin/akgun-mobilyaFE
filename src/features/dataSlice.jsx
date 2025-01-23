@@ -11,7 +11,7 @@ const blogSlice = createSlice({
     photoGalleryPages: [],
     projects: [],
     projectsPages: [],
-    projectDetails: false,
+    projectDetails: true,
     loading: "",
     error: "",
   },

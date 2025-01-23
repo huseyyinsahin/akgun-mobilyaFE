@@ -108,7 +108,7 @@ const PhotoGalleryForm = ({
                       <img
                         src={
                           updateData && values.image
-                            ? `${process.env.REACT_APP_BASE_URL}${values.image}`
+                            ? `${process.env.REACT_APP_BASE_URL}/${values.image}`
                             : previewImage
                         }
                         alt="mobilya"
