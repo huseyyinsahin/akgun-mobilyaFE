@@ -140,7 +140,7 @@ const SliderForm = ({ open, handleClose, updateData, setUpdateData }) => {
                       <img
                         src={
                           updateData && values.image
-                            ? `${process.env.REACT_APP_BASE_URL}${values.image}`
+                            ? `${process.env.REACT_APP_BASE_URL}/${values.image}`
                             : previewImage
                         }
                         alt="mobilya"
