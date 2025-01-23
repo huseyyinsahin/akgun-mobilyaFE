@@ -7,13 +7,13 @@ import {
   Stack,
   Container,
   CircularProgress,
-  Alert,
   TextField,
 } from "@mui/material";
 import { Form, Formik } from "formik";
+import { object, string } from "yup";
 import useProjectsRequest from "../../hooks/useProjectsRequest";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const MyProjectsForm = ({
   open,
@@ -32,6 +32,14 @@ const MyProjectsForm = ({
   }, [projectsId]);
 
   const { projectDetails } = useSelector((state) => state.data);
+
+  const projectsSchema = object({
+    title: string()
+      .required("Başlık gerekli")
+      .max(50, "Başlık en fazla 50 karakter olabilir"),
+    text: string().required("Açıklama gerekli"),
+  });
+
   return (
     <>
       {!projectDetails ? (
@@ -55,7 +63,8 @@ const MyProjectsForm = ({
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: { xs: "15rem", md: "75rem" },
+              width: { xs: "20rem", md: "75rem" },
+              maxWidth: "100%",
               maxHeight: "90vh",
               bgcolor: "background.paper",
               borderRadius: "8px",
@@ -73,7 +82,7 @@ const MyProjectsForm = ({
                   ? {
                       title: projectDetails.title,
                       text: projectDetails.text,
-                      image: projectDetails.image, // görsel silinmediyse görselin path'i buraya gider (görsel eğer silinirse, bu property boş dizi olarak ayarlanır)
+                      image: projectDetails.image, // görseller silinmediyse görselin path'i buraya gider (görseller eğer silinirse, bir şey göndermeye gerek yoktur)
                       images: [], // görseller buraya gider
                     }
                   : {
@@ -82,6 +91,7 @@ const MyProjectsForm = ({
                       images: [],
                     }
               }
+              validationSchema={projectsSchema}
               onSubmit={(values, actions) => {
                 if (projectsId) {
                   updateProjects(values, projectsId, page);
@@ -89,10 +99,9 @@ const MyProjectsForm = ({
                   postProjects(values, page);
                 }
                 setProjectsId(false);
-                actions.resetForm();
                 setPreviewImage([]);
+                actions.resetForm();
                 handleClose();
-                console.log(values)
               }}
             >
               {({
@@ -135,7 +144,7 @@ const MyProjectsForm = ({
                           name="text"
                           type="text"
                           multiline
-                          rows={13}
+                          rows={15}
                           value={values.text}
                           onChange={handleChange}
                           onBlur={handleBlur}
@@ -156,10 +165,12 @@ const MyProjectsForm = ({
                                   e.currentTarget.files[
                                     e.currentTarget.files.length - 1
                                   ]; // son yüklenen dosyayı seçebilmek için
+
                                 setFieldValue("images", [
                                   ...(values.images || []),
                                   file,
                                 ]);
+
                                 setPreviewImage([
                                   ...previewImage,
                                   URL.createObjectURL(file),
@@ -226,7 +237,7 @@ const MyProjectsForm = ({
                         <Box
                           sx={{
                             display: "flex",
-                            flexWrap: "wrap",
+                            flexDirection: "column",
                             gap: "0.5rem",
                           }}
                         >
@@ -242,7 +253,7 @@ const MyProjectsForm = ({
                                     }}
                                   >
                                     <img
-                                      src={`${process.env.REACT_APP_BASE_URL}${img}`}
+                                      src={`${process.env.REACT_APP_BASE_URL}/${img}`}
                                       alt="mobilya"
                                       style={{
                                         width: "100%",
@@ -257,7 +268,7 @@ const MyProjectsForm = ({
                                           (deleteImage) => deleteImage !== img
                                         );
                                         setFieldValue("image", deletedValues);
-                                        // bu işlemleri yapmamızın sebebi güncelleme işlemi yapılırken gelen fotografları kullanıcı sildiğinden doğru bir şekilde silmesi için
+                                        // bu işlemleri yapmamızın sebebi güncelleme işlemi yapılırken gelen fotografları kullanıcı sildiğinde doğru bir şekilde silmesi için
                                       }}
                                       sx={{
                                         position: "absolute",
@@ -291,20 +302,24 @@ const MyProjectsForm = ({
                                   />
                                   <DeleteOutlinedIcon
                                     onClick={() => {
-                                      let deletedValues = values?.images;
+                                      const indexToDelete =
+                                        previewImage.indexOf(img);
 
-                                      deletedValues = deletedValues?.filter(
-                                        (deleteImage) => deleteImage !== img
+                                      const deleteImages = [...values.images];
+                                      deleteImages.splice(indexToDelete, 1);
+
+                                      setFieldValue("images", deleteImages);
+
+                                      const deletePreviewImages = [
+                                        ...previewImage,
+                                      ];
+                                      deletePreviewImages.splice(
+                                        indexToDelete,
+                                        1
                                       );
 
-                                      setFieldValue("images", deletedValues);
-
-                                      const deletedPreviewImage =
-                                        previewImage.filter(
-                                          (image) => image !== img
-                                        );
-                                      setPreviewImage(deletedPreviewImage);
-                                      // kullanıcı kendisi modal üzerinde resim yükleme işlemi yaparken yani fotografları daha backend'e göndermediği esnada yüklediği fotografı silmek isterse diye silmek için tıkladıgı fotografı hem önizlemeden hemde "images" dizisinden kaldırıyoruz
+                                      setPreviewImage(deletePreviewImages);
+                                      // önce tıklanan indexi tespit ediyoruz sonra o indexteki elemanı hem previewImage'den hemde values.images'ten siliyoruz
                                     }}
                                     sx={{
                                       position: "absolute",
