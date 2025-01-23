@@ -18,7 +18,6 @@ const useProjectsRequest = () => {
       const { data } = await axiosPublic.get(
         `projects?page=${pageCount}&limit=6`
       );
-      console.log(data);
       dispatch(setProjects(data));
     } catch (error) {
       dispatch(fail());
@@ -30,6 +29,7 @@ const useProjectsRequest = () => {
       const { data } = await axiosPublic.get(`projects/${id}`);
       dispatch(setProjectDetails(data));
     } catch (error) {
+      toastErrorNotify("Sayfayı yenileyiniz!");
     }
   };
 
