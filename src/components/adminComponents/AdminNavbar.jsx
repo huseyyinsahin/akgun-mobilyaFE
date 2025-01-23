@@ -8,7 +8,7 @@ const AdminNavbar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <Box sx={{ height: "6.3rem" }}></Box>
+      <Box sx={{ height: "6.2rem" }}></Box>
 
       <AppBar
         sx={{

@@ -1,235 +1,112 @@
-import { Box, Typography, Grid2 } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from "@mui/icons-material/Home";
+import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import StarIcon from "@mui/icons-material/Star";
+import InfoIcon from "@mui/icons-material/Info";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
+import WorkIcon from "@mui/icons-material/Work";
 
 const AdminHome = () => {
   const navigate = useNavigate();
+
+  const sections = [
+    {
+      title: "Anasayfa - Slider",
+      description: "Slider içeriğini düzenleyin ve zenginleştirin.",
+      icon: <HomeIcon sx={{ fontSize: "4.5rem", color: "#1976D2" }} />,
+      link: "/adminslider",
+    },
+    {
+      title: "Anasayfa - Bilgi Kartları",
+      description: "Bilgi kartlarını kolayca yönetin.",
+      icon: <CardGiftcardIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      link: "/adminhomecard",
+    },
+    {
+      title: "Anasayfa - Referanslar",
+      description: "Referanslarınızı görüntüleyin ve düzenleyin.",
+      icon: <StarIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      link: "/adminreference",
+    },
+    {
+      title: "Hakkımızda",
+      description: "Şirket bilgilerini burada yönetin.",
+      icon: <InfoIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      link: "/adminabout",
+    },
+    {
+      title: "Galeri",
+      description: "Görsellerinizi buradan yönetin.",
+      icon: <PhotoLibraryIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      link: "/adminphotogallery",
+    },
+    {
+      title: "Projeler",
+      description: "Projelerinizi kolayca düzenleyin.",
+      icon: <WorkIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      link: "/adminmyprojects",
+    },
+  ];
+
   return (
     <Box
       sx={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: { xs: "1rem", md: "1rem 4rem", xl: "0rem 6rem" },
+        padding: { xs: "1rem", md: "2rem", xl: "8rem" },
       }}
     >
-      <Grid2 container spacing={3}>
-        <Grid2 size={{ xs: 12, md: 4 }}>
-          <Box
-            onClick={() => navigate("/adminslider")}
-            sx={{
-              cursor: "pointer",
-              border: "3px solid #1976D2",
-              borderRadius: "12px",
-              height: { xs: "14rem", xl: "20rem" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3F2FD",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                backgroundColor: "#BBDEFB",
-                transform: "scale(1.05) translateY(-10px)",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
+      <Grid container spacing={4}>
+        {sections.map((section, index) => (
+          <Grid key={index} item xs={12} md={4}>
+            <Box
+              onClick={() => navigate(section.link)}
               sx={{
-                fontWeight: "bold",
-                color: "#1976D2",
-                marginBottom: "0.5rem",
+                cursor: "pointer",
+                borderRadius: "16px",
+                boxShadow: "0 8px 20px rgba(0, 0, 0, 0.2)",
+                height: { xs: "13rem", xl: "22rem" },
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                background:
+                  "linear-gradient(145deg, #FFFFFF, #E3F2FD, #BBDEFB)",
+                transition: "all 0.4s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05) translateY(-10px)",
+                  boxShadow: "0 12px 24px rgba(0, 0, 0, 0.3)",
+                },
               }}
             >
-              Anasayfa - Slider
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#0D47A1" }}>
-              Slider içeriğini düzenleyin ve zenginleştirin.
-            </Typography>
-          </Box>
-        </Grid2>
-
-        <Grid2 size={{ xs: 12, md: 4 }}>
-          <Box
-            onClick={() => navigate("/adminhomecard")}
-            sx={{
-              cursor: "pointer",
-              border: "3px solid #1976D2",
-              borderRadius: "12px",
-              height: { xs: "14rem", xl: "20rem" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3F2FD",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                backgroundColor: "#BBDEFB",
-                transform: "scale(1.05) translateY(-10px)",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                color: "#1976D2",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Anasayfa - Bilgi Kartları
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#0D47A1" }}>
-              Bilgi kartlarını kolayca yönetin.
-            </Typography>
-          </Box>
-        </Grid2>
-
-        <Grid2 size={{ xs: 12, md: 4 }}>
-          <Box
-            onClick={() => navigate("/adminreference")}
-            sx={{
-              cursor: "pointer",
-              border: "3px solid #1976D2",
-              borderRadius: "12px",
-              height: { xs: "14rem", xl: "20rem" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3F2FD",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                backgroundColor: "#BBDEFB",
-                transform: "scale(1.05) translateY(-10px)",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                color: "#1976D2",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Anasayfa - Referanslar
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#0D47A1" }}>
-              Referanslarınızı detaylıca görüntüleyin ve düzenleyin.
-            </Typography>
-          </Box>
-        </Grid2>
-
-        <Grid2 size={{ xs: 12, md: 4 }}>
-          <Box
-            onClick={() => navigate("/adminabout")}
-            sx={{
-              cursor: "pointer",
-              border: "3px solid #1976D2",
-              borderRadius: "12px",
-              height: { xs: "14rem", xl: "20rem" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3F2FD",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                backgroundColor: "#BBDEFB",
-                transform: "scale(1.05) translateY(-10px)",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                color: "#1976D2",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Hakkımızda
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#0D47A1" }}>
-              Şirket bilgilerini burada yönetin.
-            </Typography>
-          </Box>
-        </Grid2>
-
-        <Grid2 size={{ xs: 12, md: 4 }}>
-          <Box
-            onClick={() => navigate("/adminphotogallery")}
-            sx={{
-              cursor: "pointer",
-              border: "3px solid #1976D2",
-              borderRadius: "12px",
-              height: { xs: "14rem", xl: "20rem" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3F2FD",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                backgroundColor: "#BBDEFB",
-                transform: "scale(1.05) translateY(-10px)",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                color: "#1976D2",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Galeri
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#0D47A1" }}>
-              Görsellerinizi buradan yönetin.
-            </Typography>
-          </Box>
-        </Grid2>
-
-        <Grid2 size={{ xs: 12, md: 4 }}>
-          <Box
-            onClick={() => navigate("/adminmyprojects")}
-            sx={{
-              cursor: "pointer",
-              border: "3px solid #1976D2",
-              borderRadius: "12px",
-              height: { xs: "14rem", xl: "20rem" },
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "#E3F2FD",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                backgroundColor: "#BBDEFB",
-                transform: "scale(1.05) translateY(-10px)",
-              },
-            }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                fontWeight: "bold",
-                color: "#1976D2",
-                marginBottom: "0.5rem",
-              }}
-            >
-              Projeler
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#0D47A1" }}>
-              Projelerinizi kolayca düzenleyin.
-            </Typography>
-          </Box>
-        </Grid2>
-      </Grid2>
+              {section.icon}
+              <Typography
+                variant="h5"
+                sx={{
+                  fontWeight: "bold",
+                  background: "linear-gradient(to right, #1976D2, #0D47A1)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                {section.title}
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#0D47A1",
+                }}
+              >
+                {section.description}
+              </Typography>
+            </Box>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };
