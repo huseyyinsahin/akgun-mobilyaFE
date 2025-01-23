@@ -13,14 +13,16 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useProjectsRequest from "../../hooks/useProjectsRequest";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import MyProjectsForm from "../../components/adminComponents/MyProjectsForm";
+import { setProjectDetails } from "../../features/dataSlice";
 
 const AdminMyProjects = () => {
+  const dispacth = useDispatch();
   const { getProjects, deleteProjects } = useProjectsRequest();
 
   useEffect(() => {
@@ -149,7 +151,7 @@ const AdminMyProjects = () => {
                     <Typography
                       sx={{
                         color: "text.primary",
-                        fontSize: "1.1rem",
+                        fontSize: "1.3rem",
                       }}
                     >
                       {item.title}
@@ -167,6 +169,8 @@ const AdminMyProjects = () => {
                       onClick={() => {
                         setOpen(true);
                         setProjectsId(item._id);
+                        dispacth(setProjectDetails({ data: false })); 
+                        // normalde true olan bu projectDetails statesini güncelleye basıldıgında false çeviriyoruz çünkü MyProjectsForm componentinde ilk başta veriler gelene kadar loading gözüksün (MyProjectsForm'un 45. satırına bak).
                       }}
                       variant="contained"
                       size="small"
@@ -241,7 +245,7 @@ const AdminMyProjects = () => {
               handleClose={handleClose}
               projectsId={projectsId}
               setProjectsId={setProjectsId}
-              page={page} // page bilgisini göndermemizin sebebi, ProjectsForm'da create update gibi işlemler yapılınca yine aynı sayfada kalabilmesini sağlamak | örnek: 3. sayfadaki bir fotograf güncellenince, güncelleme isteği yapılıp bittikten sonra yine aynı sayfaya istek yapılsın ve güncel bir şekilde 3. sayfa geri gelmiş olsun, ilk sayfaya geri dönmemiş olsun.
+              page={page} // page bilgisini göndermemizin sebebi, MyProjectsForm'da create update gibi işlemler yapılınca yine aynı sayfada kalabilmesini sağlamak | örnek: 3. sayfadaki bir fotograf güncellenince, güncelleme isteği yapılıp bittikten sonra yine aynı sayfaya istek yapılsın ve güncel bir şekilde 3. sayfa geri gelmiş olsun, ilk sayfaya geri dönmemiş olsun.
             />
 
             <Dialog open={openDialog} onClose={handleDialogClose}>
