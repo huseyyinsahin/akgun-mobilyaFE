@@ -118,6 +118,8 @@ const HomeCardForm = ({ open, handleClose, updateData, setUpdateData }) => {
                       type="submit"
                       sx={{
                         textTransform: "none",
+                        backgroundColor: "#A8906C",
+                        "&:hover": { backgroundColor: "#7E643C" },
                       }}
                     >
                       Gönder

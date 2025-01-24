@@ -154,7 +154,14 @@ const MyProjectsForm = ({
                         />
 
                         <>
-                          <Button variant="contained" component="label">
+                          <Button
+                            variant="contained"
+                            component="label"
+                            sx={{
+                              backgroundColor: "#A8906C",
+                              "&:hover": { backgroundColor: "#7E643C" },
+                            }}
+                          >
                             Görsel Yükle
                             <input
                               type="file"
@@ -222,6 +229,8 @@ const MyProjectsForm = ({
                             sx={{
                               textTransform: "none",
                               padding: "0.8rem 3rem",
+                              backgroundColor: "#A8906C",
+                              "&:hover": { backgroundColor: "#7E643C" },
                             }}
                           >
                             Gönder

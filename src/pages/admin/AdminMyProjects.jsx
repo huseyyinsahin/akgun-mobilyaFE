@@ -103,7 +103,10 @@ const AdminMyProjects = () => {
                 variant="h3"
                 sx={{
                   fontWeight: "bold",
-                  color: "primary.main",
+                  background:
+                    "linear-gradient(145deg, #7E643C, #A8906C, #D7C4A5)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                   fontSize: { xs: "2rem", md: "3rem" },
                 }}
               >
@@ -112,7 +115,11 @@ const AdminMyProjects = () => {
               <Button
                 onClick={() => setOpen(true)}
                 variant="contained"
-                sx={{ height: "2rem", textTransform: "none" }}
+                sx={{
+                  height: "2rem",
+                  textTransform: "none",
+                  backgroundColor: "#A8906C",
+                }}
               >
                 Ekle
               </Button>
@@ -169,15 +176,15 @@ const AdminMyProjects = () => {
                       onClick={() => {
                         setOpen(true);
                         setProjectsId(item._id);
-                        dispacth(setProjectDetails({ data: false })); 
+                        dispacth(setProjectDetails({ data: false }));
                         // normalde true olan bu projectDetails statesini güncelleye basıldıgında false çeviriyoruz çünkü MyProjectsForm componentinde ilk başta veriler gelene kadar loading gözüksün (MyProjectsForm'un 45. satırına bak).
                       }}
                       variant="contained"
                       size="small"
                       sx={{
                         textTransform: "none",
-                        backgroundColor: "primary.main",
-                        "&:hover": { backgroundColor: "primary.dark" },
+                        backgroundColor: "#A8906C",
+                        "&:hover": { backgroundColor: "#7E643C" },
                       }}
                     >
                       Güncelle

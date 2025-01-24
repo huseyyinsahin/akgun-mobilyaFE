@@ -75,7 +75,14 @@ const PhotoGalleryForm = ({
                   {/* görsel varsa eğer görsel yükleme butonu gözükmesin */}
                   {!values.images && !values.image && (
                     <>
-                      <Button variant="contained" component="label">
+                      <Button
+                        variant="contained"
+                        component="label"
+                        sx={{
+                          backgroundColor: "#A8906C",
+                          "&:hover": { backgroundColor: "#7E643C" },
+                        }}
+                      >
                         Görsel Yükle
                         <input
                           type="file"
@@ -162,6 +169,8 @@ const PhotoGalleryForm = ({
                       type="submit"
                       sx={{
                         textTransform: "none",
+                        backgroundColor: "#A8906C",
+                        "&:hover": { backgroundColor: "#7E643C" },
                       }}
                     >
                       Gönder

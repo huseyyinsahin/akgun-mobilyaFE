@@ -15,37 +15,37 @@ const AdminHome = () => {
     {
       title: "Anasayfa - Slider",
       description: "Slider içeriğini düzenleyin ve zenginleştirin.",
-      icon: <HomeIcon sx={{ fontSize: "4.5rem", color: "#1976D2" }} />,
+      icon: <HomeIcon sx={{ fontSize: "4.5rem", color: "white" }} />,
       link: "/adminslider",
     },
     {
       title: "Anasayfa - Bilgi Kartları",
       description: "Bilgi kartlarını kolayca yönetin.",
-      icon: <CardGiftcardIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      icon: <CardGiftcardIcon sx={{ fontSize: "3.5rem", color: "white" }} />,
       link: "/adminhomecard",
     },
     {
       title: "Anasayfa - Referanslar",
       description: "Referanslarınızı görüntüleyin ve düzenleyin.",
-      icon: <StarIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      icon: <StarIcon sx={{ fontSize: "3.5rem", color: "white" }} />,
       link: "/adminreference",
     },
     {
       title: "Hakkımızda",
       description: "Şirket bilgilerini burada yönetin.",
-      icon: <InfoIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      icon: <InfoIcon sx={{ fontSize: "3.5rem", color: "white" }} />,
       link: "/adminabout",
     },
     {
       title: "Galeri",
       description: "Görsellerinizi buradan yönetin.",
-      icon: <PhotoLibraryIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      icon: <PhotoLibraryIcon sx={{ fontSize: "3.5rem", color: "white" }} />,
       link: "/adminphotogallery",
     },
     {
       title: "Projeler",
       description: "Projelerinizi kolayca düzenleyin.",
-      icon: <WorkIcon sx={{ fontSize: "3.5rem", color: "#1976D2" }} />,
+      icon: <WorkIcon sx={{ fontSize: "3.5rem", color: "white" }} />,
       link: "/adminmyprojects",
     },
   ];
@@ -74,7 +74,7 @@ const AdminHome = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 background:
-                  "linear-gradient(145deg, #FFFFFF, #E3F2FD, #BBDEFB)",
+                  "linear-gradient(145deg, #7E643C, #A8906C, #D7C4A5)",
                 transition: "all 0.4s ease-in-out",
                 "&:hover": {
                   transform: "scale(1.05) translateY(-10px)",
@@ -87,9 +87,7 @@ const AdminHome = () => {
                 variant="h5"
                 sx={{
                   fontWeight: "bold",
-                  background: "linear-gradient(to right, #1976D2, #0D47A1)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
+                  color: "#FFFFFF", 
                   marginBottom: "0.5rem",
                 }}
               >
@@ -98,7 +96,7 @@ const AdminHome = () => {
               <Typography
                 variant="body2"
                 sx={{
-                  color: "#0D47A1",
+                  color: "white", 
                 }}
               >
                 {section.description}

@@ -92,7 +92,10 @@ const AdminHomeCard = () => {
                 variant="h3"
                 sx={{
                   fontWeight: "bold",
-                  color: "primary.main",
+                  background:
+                    "linear-gradient(145deg, #7E643C, #A8906C, #D7C4A5)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
                   fontSize: { xs: "1.5rem", md: "3rem" },
                 }}
               >
@@ -101,7 +104,11 @@ const AdminHomeCard = () => {
               <Button
                 onClick={() => setOpen(true)}
                 variant="contained"
-                sx={{ height: "2rem", textTransform: "none" }}
+                sx={{
+                  height: "2rem",
+                  textTransform: "none",
+                  backgroundColor: "#A8906C",
+                }}
               >
                 Ekle
               </Button>
@@ -165,8 +172,8 @@ const AdminHomeCard = () => {
                     size="small"
                     sx={{
                       textTransform: "none",
-                      backgroundColor: "primary.main",
-                      "&:hover": { backgroundColor: "primary.dark" },
+                      backgroundColor: "#A8906C",
+                      "&:hover": { backgroundColor: "#7E643C" },
                     }}
                   >
                     Güncelle

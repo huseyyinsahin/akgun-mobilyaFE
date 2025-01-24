@@ -17,6 +17,8 @@ const AdminNavbar = () => {
           justifyContent: "space-around",
           alignItems: "center",
           flexDirection: "row",
+          background:
+            "linear-gradient(90deg,rgb(146, 113, 65),rgb(205, 181, 145),rgb(146, 113, 65))",
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "5px" }}>
@@ -24,9 +26,12 @@ const AdminNavbar = () => {
             onClick={() => navigate("/")}
             sx={{
               color: "white",
-              backgroundColor: "rgb(0, 128, 255)",
+              background: "linear-gradient(145deg, #7E643C, #A8906C, #D7C4A5)",
               textTransform: "capitalize",
-              "&:hover": { backgroundColor: "lightGray", color: "gray" },
+              "&:hover": {
+                background:
+                  "linear-gradient(145deg, #D7C4A5, #A8906C, #7E643C)",
+              },
             }}
           >
             Siteye Dön
@@ -35,9 +40,12 @@ const AdminNavbar = () => {
             onClick={() => navigate(-1)}
             sx={{
               color: "white",
-              backgroundColor: "rgb(0, 128, 255)",
+              background: "linear-gradient(145deg, #7E643C, #A8906C, #D7C4A5)",
               textTransform: "capitalize",
-              "&:hover": { backgroundColor: "lightGray", color: "gray" },
+              "&:hover": {
+                background:
+                  "linear-gradient(145deg, #D7C4A5, #A8906C, #7E643C)",
+              },
             }}
           >
             Geri Dön
@@ -88,9 +96,11 @@ const AdminNavbar = () => {
           onClick={logout}
           sx={{
             color: "white",
-            backgroundColor: "rgb(0, 128, 255)",
+            background: "linear-gradient(145deg, #7E643C, #A8906C, #D7C4A5)",
             textTransform: "capitalize",
-            "&:hover": { backgroundColor: "lightGray", color: "gray" },
+            "&:hover": {
+              background: "linear-gradient(145deg, #D7C4A5, #A8906C, #7E643C)",
+            },
           }}
         >
           Çıkış Yap
