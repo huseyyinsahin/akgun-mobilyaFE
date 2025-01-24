@@ -52,7 +52,7 @@ const MyProjectsForm = ({
               height: "90vh",
             }}
           >
-            <CircularProgress color="primary" size={150} />
+            <CircularProgress color="black" size={150} />
           </Container>
         </Modal>
       ) : (
