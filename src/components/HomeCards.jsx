@@ -1,6 +1,5 @@
 import {
   Alert,
-  Box,
   Card,
   CardContent,
   CircularProgress,
@@ -42,7 +41,10 @@ function HomeCards() {
         </Container>
       ) : (
         !error && (
-          <Box sx={{ padding: { xs: "1rem", md: "4rem 5rem" } }}>
+          <Container
+            maxWidth="xl"
+            sx={{ padding: { xs: "1rem", md: "4rem 2rem" } }}
+          >
             <Grid container spacing={4} justifyContent="center">
               {homeCard.map((item) => (
                 <Grid key={item._id} item xs={12} sm={6}>
@@ -86,7 +88,7 @@ function HomeCards() {
                 </Grid>
               ))}
             </Grid>
-          </Box>
+          </Container>
         )
       )}
     </>
