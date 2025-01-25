@@ -63,10 +63,10 @@ const Reference = () => {
                   animation: "scroll 12s linear infinite",
                   "@keyframes scroll": {
                     "0%": {
-                      transform: "translateX(150%)",
+                      transform: "translateX(100vw)",
                     },
                     "100%": {
-                      transform: "translateX(-110%)",
+                      transform: "translateX(-100vw)",
                     },
                   },
                 }}
