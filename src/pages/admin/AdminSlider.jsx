@@ -201,6 +201,12 @@ const AdminSlider = () => {
                 </Box>
               </Card>
             ))}
+            <Typography
+              sx={{ fontSize: "0.6rem", color: "gray", textAlign: "center" }}
+            >
+              Burada en fazla 6 tane içerik bulundurmanız ve belli aralıklarla
+              bu içerikleri yenileyip güncel tutmanız önerilir.
+            </Typography>
             <SliderForm
               open={open}
               handleClose={handleClose}

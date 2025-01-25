@@ -200,6 +200,11 @@ const AdminHomeCard = () => {
                 </CardActions>
               </Card>
             ))}
+            <Typography
+              sx={{ fontSize: "0.6rem", color: "gray", textAlign: "center" }}
+            >
+              Burada en fazla 4 tane kart bulundurmanız önerilir.
+            </Typography>
             <HomeCardForm
               open={open}
               handleClose={handleClose}

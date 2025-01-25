@@ -196,7 +196,8 @@ const MyProjectsForm = ({
                             ● Görsel yüklenmelidir!
                             <br />● Yatay görseller yüklemeniz tavsiye edilir.
                             <br />● Sadece JPEG, JPG ve PNG formatında yükleme
-                            yapılabilir.
+                            yapılabilir. 
+                            <br />● İlk yüklediğiniz fotograf projenin kapak fotografı olacaktır!
                           </Typography>
                         </>
 
