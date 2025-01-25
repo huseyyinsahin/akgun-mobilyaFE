@@ -209,25 +209,25 @@ const AdminPhotoGallery = () => {
                 justifyContent: "center",
                 marginTop: "1.5rem",
                 "& .MuiPaginationItem-root": {
-                  backgroundColor: "primary.main",
+                  backgroundColor: "#A8906C",
                   border: "1px solid #444",
                   borderRadius: "8px",
                   color: "white",
                   fontWeight: "bold",
                   transition: "all 0.3s ease",
                   "&:hover": {
-                    backgroundColor: "primary.light",
+                    backgroundColor: "#7E643C",
                     color: "#FFF",
                     borderColor: "#555",
                   },
                   "&.Mui-selected": {
-                    backgroundColor: "primary.light",
+                    backgroundColor: "#7E643C",
                     color: "white",
                     borderColor: "black",
                   },
                 },
                 "& .MuiPaginationItem-ellipsis": {
-                  backgroundColor: "white",
+                  backgroundColor: "#A8906C",
                   color: "black",
                 },
               }}
