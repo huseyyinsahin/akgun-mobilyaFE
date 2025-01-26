@@ -18,6 +18,7 @@ import AdminSlider from "../pages/admin/AdminSlider";
 import AdminHomeCard from "../pages/admin/AdminHomeCard";
 import AdminReference from "../pages/admin/AdminReference";
 import AdminNavbar from "../components/adminComponents/AdminNavbar";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
