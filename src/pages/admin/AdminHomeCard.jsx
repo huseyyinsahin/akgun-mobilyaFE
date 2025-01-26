@@ -247,7 +247,6 @@ const AdminHomeCard = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   onClick={() => {
                     deleteHomeCard(homeCardDeleteId);
                     handleDialogClose();
@@ -257,6 +256,7 @@ const AdminHomeCard = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     ml: 2,
+                    backgroundColor: "#A8906C",
                   }}
                 >
                   Onayla

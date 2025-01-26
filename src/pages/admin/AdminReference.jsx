@@ -242,7 +242,6 @@ const AdminReference = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   onClick={() => {
                     deleteReference(referenceDeleteId);
                     handleDialogClose();
@@ -252,6 +251,7 @@ const AdminReference = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     ml: 2,
+                    backgroundColor: "#A8906C",
                   }}
                 >
                   Onayla

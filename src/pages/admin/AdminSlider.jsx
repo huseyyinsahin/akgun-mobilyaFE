@@ -249,7 +249,6 @@ const AdminSlider = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   onClick={() => {
                     deleteSlider(sliderDeleteId);
                     handleDialogClose();
@@ -259,6 +258,7 @@ const AdminSlider = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     ml: 2,
+                    backgroundColor: "#A8906C",
                   }}
                 >
                   Onayla

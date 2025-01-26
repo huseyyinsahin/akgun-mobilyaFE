@@ -280,7 +280,6 @@ const AdminPhotoGallery = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   onClick={() => {
                     deletePhotoGallery(photoGalleryDeleteId, page);
                     handleDialogClose();
@@ -290,6 +289,7 @@ const AdminPhotoGallery = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     ml: 2,
+                    backgroundColor: "#A8906C",
                   }}
                 >
                   Onayla

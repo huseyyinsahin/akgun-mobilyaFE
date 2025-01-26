@@ -290,7 +290,6 @@ const AdminMyProjects = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   onClick={() => {
                     deleteProjects(projectsId, page);
                     handleDialogClose();
@@ -300,6 +299,7 @@ const AdminMyProjects = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     ml: 2,
+                    backgroundColor: "#A8906C",
                   }}
                 >
                   Onayla

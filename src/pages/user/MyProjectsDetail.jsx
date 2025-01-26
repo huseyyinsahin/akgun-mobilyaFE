@@ -139,8 +139,8 @@ const MyProjectsDetail = () => {
             </Typography>
 
             <Grid container spacing={2}>
-              {projectDetails?.image?.slice(1).map((img) => (
-                <Grid item xs={12} md={3} key={projectDetails._id}>
+              {projectDetails?.image?.slice(1).map((img, index) => (
+                <Grid item xs={12} md={3} key={index}>
                   <Box
                     component="img"
                     src={`${process.env.REACT_APP_BASE_URL}/${img}`}

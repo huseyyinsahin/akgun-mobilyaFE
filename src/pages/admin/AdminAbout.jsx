@@ -160,7 +160,7 @@ const AdminAbout = () => {
                     sx={{
                       textTransform: "none",
                       backgroundColor: "#A8906C",
-                        "&:hover": { backgroundColor: "#7E643C" },
+                      "&:hover": { backgroundColor: "#7E643C" },
                     }}
                   >
                     Güncelle
@@ -230,7 +230,6 @@ const AdminAbout = () => {
                 </Button>
                 <Button
                   variant="contained"
-                  color="primary"
                   onClick={() => {
                     deleteAbout(aboutDeleteId);
                     handleDialogClose();
@@ -240,6 +239,7 @@ const AdminAbout = () => {
                     borderRadius: "8px",
                     textTransform: "none",
                     ml: 2,
+                    backgroundColor: "#A8906C",
                   }}
                 >
                   Onayla
