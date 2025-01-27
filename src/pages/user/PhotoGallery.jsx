@@ -108,7 +108,7 @@ const PhotoGallery = () => {
                 onClick={() =>
                   handleImageClick(photoGallery[imagesCount].image)
                 }
-                alt="Mobilya"
+                alt="Akgün Mobilya mobilya tasarımları, şık ve kaliteli el yapımı koltuk takımları, oturma grupları, sehpa takımları, mobilya markaları ve daha fazlasıyla yaşam alanlarınızı güzelleştiriyor. Koltuk takımları fiyatları ve mobilya tasarım seçenekleriyle her ihtimale uygun çözümler sunuyoruz."
                 sx={{
                   width: "100%",
                   height: { xs: "20rem", md: "30rem", xl: "40rem" },
@@ -171,7 +171,7 @@ const PhotoGallery = () => {
               width="150px"
               height="100px"
               src={`${process.env.REACT_APP_BASE_URL}/${item?.image}`}
-              alt="Mobilya"
+              alt="Akgün Mobilya mobilya tasarımları, şık ve kaliteli el yapımı koltuk takımları, oturma grupları, sehpa takımları, mobilya markaları ve daha fazlasıyla yaşam alanlarınızı güzelleştiriyor. Koltuk takımları fiyatları ve mobilya tasarım seçenekleriyle her ihtimale uygun çözümler sunuyoruz."
             />
           </Box>
         ))}
