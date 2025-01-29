@@ -12,7 +12,6 @@ import useProjectsRequest from "../../hooks/useProjectsRequest";
 import { useSelector } from "react-redux";
 
 const MyProjects = () => {
-  //geri dönünce aynı sayfa
   const navigate = useNavigate();
 
   const { getProjects } = useProjectsRequest();
