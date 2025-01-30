@@ -111,7 +111,7 @@ const Slider = () => {
                 transform: "translateY(-50%)",
                 color: "black",
                 cursor: "pointer",
-                border: { sx: "none", md: "3px solid lightgray" },
+                border: { sx: "none", md: "1px solid lightgray" },
                 borderRadius: "50%",
               }}
             />
@@ -126,7 +126,7 @@ const Slider = () => {
                 transform: "translateY(-50%)",
                 color: "",
                 cursor: "pointer",
-                border: { sx: "none", md: "3px solid lightgray" },
+                border: { sx: "none", md: "1px solid lightgray" },
                 borderRadius: "50%",
               }}
             />
