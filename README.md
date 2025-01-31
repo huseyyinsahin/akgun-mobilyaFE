@@ -31,4 +31,10 @@ Akgün Mobilya projesi, aşağıdaki teknolojilerle geliştirilmiştir:
 - **Redux & Redux Toolkit:** Uygulamanın durum yönetimi için Redux ve Redux Toolkit kullanılmıştır, bu da uygulamanın daha verimli ve yönetilebilir hale gelmesini sağlar.
 - **React Toastify:** Kullanıcı etkileşimlerinde anlık bildirimler (toast mesajları) göstermek için React Toastify kullanılmıştır. Bu sayede kullanıcılar işlemleri hakkında hızlı bir geri bildirim alırlar. 🎉
 
+###  Admin Paneli Gif 🔐💻
+
 ![Admin Paneli Animasyonu](./admin-paneli.gif)
+
+###  Link 🔍
+
+[Akgün Mobilya](https://istanbulakgunmobilya.com/)
