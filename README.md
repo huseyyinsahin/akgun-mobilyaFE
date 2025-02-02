@@ -1,6 +1,6 @@
 # Akgün Mobilya 🛋️🪑
 
-Akgün Mobilya, kullanıcıların modern ve şık mobilya ürünlerine kolayca erişebileceği, güvenli ve kullanıcı dostu bir platformdur. Bu web uygulaması, kullanıcıların deneyimini iyileştirmek için tasarlanmış özellikler sunarken, aynı zamanda yöneticilerin verimli bir şekilde ürünleri ve içerikleri yönetmelerine olanak tanır.
+Akgün Mobilya, kullanıcıların mobilya ürünlerine kolayca erişebileceği, güvenli ve kullanıcı dostu bir platformdur. Bu web uygulaması, kullanıcıların deneyimini iyileştirmek için tasarlanmış özellikler sunarken, aynı zamanda yöneticilerin verimli bir şekilde ürünleri ve içerikleri yönetmelerine olanak tanır.
 
 ## Proje Hakkında 📊
 
